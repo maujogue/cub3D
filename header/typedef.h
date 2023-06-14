@@ -3,20 +3,30 @@
 /*                                                        :::      ::::::::   */
 /*   typedef.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/14 14:20:18 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:54:53 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEF_H
 # define TYPEDEF_H
 
+typedef struct	s_data
+{
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
 typedef struct all
 {
 	void		*mlx;
 	void		*mlx_win;
-}	t_all;
+	t_data		*data;									
+	}	t_all;
 
 #endif

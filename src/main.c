@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/14 14:29:32 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:34:04 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ int main(int argc, char **argv)
     (void)argc;
     (void)argv;
     init_cub(&all);
-    check_keypress(&all);
-    mlx_loop(all.mlx);
+    ft_mlx(&all);
     free_exit(&all);
     return (0);
 }

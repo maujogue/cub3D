@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/14 14:26:23 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/14 15:35:36 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ void    init_cub(t_all *all);
 void	check_keypress(t_all *all);
 
 void    free_exit(t_all *all);
+
+void	ft_mlx(t_all *all);
 
 #endif
