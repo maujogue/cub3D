@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   typedef.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 13:54:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/14 14:29:32 by maujogue         ###   ########.fr       */
+/*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
+/*   Updated: 2023/06/14 14:20:18 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/cub.h"
+#ifndef TYPEDEF_H
+# define TYPEDEF_H
 
-int main(int argc, char **argv)
+typedef struct all
 {
-    t_all all;
+	void		*mlx;
+	void		*mlx_win;
+}	t_all;
 
-    (void)argc;
-    (void)argv;
-    init_cub(&all);
-    check_keypress(&all);
-    mlx_loop(all.mlx);
-    free_exit(&all);
-    return (0);
-}
+#endif
