@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 13:09:54 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:43:20 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ void	ft_mlx(t_all *all);
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw_map(t_all *all);
 
-
 //-----------------------KEYPRESS--------------//
 int	close_win(t_all *all);
 int	ft_key(int keycode, t_all *all);
+
+//-----------------------RAYCASTING--------------//
+int	raycasting(t_all *all);
 
 #endif

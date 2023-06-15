@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 12:42:03 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/15 13:28:21 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,11 @@
 # define ESC_KEY 65307
 # define SPACE_KEY 32
 
+typedef struct	s_vector
+{
+	
+}				t_vector;
+
 typedef struct	s_data
 {
 	void	*img;
@@ -32,6 +37,7 @@ typedef struct	s_data
 typedef struct s_map
 {
 	char	**map;
+	
 }				t_map;
 
 typedef struct all

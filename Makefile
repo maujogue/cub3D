@@ -11,7 +11,7 @@ HEADER_FILE				= cub.h
 DIR						= src/
 
 SRC			 			=	main.c	init.c	utils.c	keypress.c	free.c mlx.c \
-							raycasting/raycasting.c	raycasting/draw_minimap.c
+							raycasting/raycasting.c		raycasting/draw_minimap.c		raycasting/move.c
 
 							
 OBJECTS			    	= $(SRC:%.c=$(BUILD_DIR)%.o)
