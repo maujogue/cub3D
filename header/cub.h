@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/14 15:35:36 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:43:06 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,9 @@ void	check_keypress(t_all *all);
 void    free_exit(t_all *all);
 
 void	ft_mlx(t_all *all);
+
+void	draw_map(t_all *all);
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 
 #endif

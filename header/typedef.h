@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 11:09:05 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:22:20 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,15 @@ typedef struct	s_data
 	int		endian;
 }				t_data;
 
+typedef struct s_map
+{
+	char	**map;
+}				t_map;
+
 typedef struct all
 {
-	t_data		*data;									
+	t_data		*data;
+	t_map 		*map;							
 	void	*mlx;
 	void	*mlx_win;
 	}	t_all;

@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 11:18:53 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:41:21 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int main(int argc, char **argv)
     (void)argc;
     (void)argv;
     init_cub(&all);
-    ft_mlx(&all);
     free_exit(&all);
     return (0);
 }
