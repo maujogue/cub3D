@@ -6,11 +6,11 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:18:09 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 16:22:35 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:40:18 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/cub.h"
+#include "../../header/cub.h"
 
 int	check_map_caracters(char **map)
 {

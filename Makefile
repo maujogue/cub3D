@@ -10,8 +10,14 @@ HEADER_FILE				= cub.h
 
 DIR						= src/
 
+<<<<<<< HEAD
 SRC			 			=	main.c	init.c	utils.c	keypress.c	free.c\
 							parsing/parsing.c	parsing/colors.c	parsing/check_map.c parsing/lst_utils.c\
+=======
+SRC			 			=	main.c	init.c	utils.c	keypress.c	free.c mlx.c \
+							raycasting/raycasting.c	raycasting/draw_minimap.c
+
+>>>>>>> Axel
 							
 OBJECTS			    	= $(SRC:%.c=$(BUILD_DIR)%.o)
 

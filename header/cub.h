@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 16:29:15 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/15 16:37:42 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,8 @@ void	check_map(t_all *all);
 int     ft_strlen_array(char **str);
 
 /**************************************Free*****************************************/
+
+void	ft_mlx(t_all *all);
 
 void    free_exit(t_all *all, int exit_code, char *error_message);
 void	free_array(char **tab);
