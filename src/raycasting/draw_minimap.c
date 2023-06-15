@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:42:27 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/14 17:03:03 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/15 10:51:11 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	draw_map(t_all *all,char **map)
 	int		i;
 	int		j;
 
+	(void)all;
 	i = 0;
 	while (map[i])
 	{

@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/14 17:01:44 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/15 11:18:43 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void    init_cub(t_all *all)
 {
+    all->data = malloc(sizeof(t_data));
     all->mlx = mlx_init();
     if (!all->mlx)
         free_exit(all);
