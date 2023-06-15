@@ -11,7 +11,7 @@ HEADER_FILE				= cub.h
 DIR						= src/
 
 SRC			 			=	main.c	init.c	utils.c	keypress.c	free.c\
-							parsing/parsing.c	parsing/colors.c	parsing/check_map.c\
+							parsing/parsing.c	parsing/colors.c	parsing/check_map.c parsing/lst_utils.c\
 							
 OBJECTS			    	= $(SRC:%.c=$(BUILD_DIR)%.o)
 
