@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:42:27 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/15 12:40:15 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/15 14:32:34 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,21 @@ void	draw_cube(t_all *all, int i, int j, char c)
 	int y;
 
 	x = 0;
-	while (x < 70)
+	while (x < SIZE_MINIMAP - 5)
 	{
 		y = 0;
-		while (y < 70)
+		while (y < SIZE_MINIMAP - 5)
 		{
 			if (c == '0')
-				my_mlx_pixel_put(all->data, x + (j * 70) , y + (i * 70), 0x000000FF);
+				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x000000FF);
 			else if (c == '1')
-				my_mlx_pixel_put(all->data, x + (j * 70) , y + (i * 70), 0x0000FF00);
+				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x0000FF00);
 			else if (c == 'N')
-				my_mlx_pixel_put(all->data, x + (j * 70) , y + (i * 70), 0x00FF0000);
+			{
+				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x000000FF);
+				if (x > 15 && x < SIZE_MINIMAP - 15 && y > 15 && y < SIZE_MINIMAP - 15)
+					my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x00FF0000);
+			}
 			y++;
 		}
 		x++;
