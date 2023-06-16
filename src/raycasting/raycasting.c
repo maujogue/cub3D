@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:56:12 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/16 10:32:24 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:48:22 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ int	raycasting(t_all *all)
 	int	i;
 
 	i = 0;
-	// printf("%d\n", all->data->endian);
-	// printf("%d\n", all->ray->mapX);
-	printf("%f\n", all->ray->cameraX);
 	while (i < 1920)
 	{
       all->ray->cameraX = 2 * i / (double)1920 - 1;
