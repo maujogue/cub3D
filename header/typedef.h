@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/16 12:49:59 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:02:32 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ typedef struct s_ray
 	double	time;
 	double	oldtime;
 	double	cameraX;            //0 pour le rayon en face, -1 a gauche et 1 a droite
-	t_vector raydir;					
-	t_vector sidedist;				//distance des rayons
+	t_vector raydir;			//l'angle du rayon		
+	t_vector sidedist;				//distance des rayons comme deltadist mais arrondis selon la position double
 	t_vector deltadist;          //l'angle des rayons
 	int		mapX;
 	int		mapY;

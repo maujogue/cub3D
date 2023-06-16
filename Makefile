@@ -13,7 +13,8 @@ DIR						= src/
 SRC			 			=	main.c	init.c	utils.c	keypress.c	free.c\
 							parsing/parsing.c	parsing/colors.c	parsing/check_map.c parsing/lst_utils.c\
 							mlx.c \
-							raycasting/raycasting.c		raycasting/draw_minimap.c		raycasting/move_minimap.c
+							raycasting/raycasting.c		raycasting/draw_minimap.c		raycasting/move_minimap.c	raycasting/pos_playeur.c \
+							raycasting/draw_line.c
 							
 
 							

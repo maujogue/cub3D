@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:42:27 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/16 10:56:20 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 14:27:24 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 
 void	draw_cube(t_all *all, int i, int j, char c)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = 0;
 	while (x < SIZE_MINIMAP - 5)

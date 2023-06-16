@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:03:20 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/15 14:33:47 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:53:42 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,19 @@
 
 void	find_pos_playeur(t_all *all)
 {
-    int	x;
-    int	y;
+	int	x;
+	int	y;
 
 	x = 0;
-	while (all->map->map[x])
+	while (all->pars->map[x])
 	{
 		y = 0;
-		while (all->map->map[x][y])
+		while (all->pars->map[x][y])
 		{
-			if (all->map->map[x][y] == 'N' || all->map->map[x][y] == 'W' ||
-				all->map->map[x][y] == 'E' || all->map->map[x][y] == 'S')
+			if (ft_strchr("NWES", all->pars->map[x][y]))
 			{
-				all->ray->pos->x = (double)x;
-				all->ray->pos->y = (double)y;
+				all->ray->pos.x = (double)x;
+				all->ray->pos.y = (double)y;
 				return ;
 			}
 			y++;
