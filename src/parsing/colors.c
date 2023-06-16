@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:38:14 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 12:46:17 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:16:11 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int parse_color(t_all *all, t_list *lst, char *key)
     char    **temp_split;
     
     temp_color = get_lst_content(lst, key);
+    if (!temp_color)
+        return (-1);
     temp_split = ft_split(temp_color, ',');
     if (!temp_split)
         free_exit(all, 1, "Malloc Error\n");
