@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 16:01:42 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:32:36 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # define S_KEY 115
 # define D_KEY 100
 # define ESC_KEY 65307
+# define SPACE_KEY 32
 # define SPACE_KEY 32
 
 typedef struct	s_vector
@@ -43,14 +44,17 @@ typedef struct s_map
 
 typedef struct s_ray
 {
-	t_vector *pos;
-	t_vector *dir;
-	t_vector *plane;
+	t_vector pos;
+	t_vector dir;
+	t_vector plane;
 	double	time;
 	double	oldtime;
 	double	cameraX;
-	t_vector *raydir;
-	t_vector *sidedist;
+	t_vector raydir;
+	t_vector sidedist;
+	t_vector deltadist;
+	int		mapX;
+	int		mapY;
 }				t_ray;
 
 

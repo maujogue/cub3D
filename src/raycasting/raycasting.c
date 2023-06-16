@@ -6,43 +6,42 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:56:12 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/15 16:23:17 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:32:24 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub.h"
 
+double	ft_sqrt(double x)
+{
+	double	guess;
+	double	epsilon;
+
+	guess = 1.0;
+	epsilon = 0.00001;
+	while (guess * guess - x > epsilon || x - guess * guess > epsilon)
+		guess = (guess + x / guess) / 2.0;
+	return (guess);
+}
+
 int	raycasting(t_all *all)
 {
-	(void)all;
-  int i;
+	int	i;
 
-  i = 0;
-  while (i < 5)
-  {
-	// for(int x = 0; x < w; x++)
-  //   {
-      // all->ray->cameraX = 2 * i / (double)5 - 1;
-      // all->ray->raydir->x = all->ray->dir->x + all->ray->plane->x * all->ray->cameraX;
-      // all->ray->raydir->y = all->ray->dir->y + all->ray->plane->y * all->ray->cameraX;
-      // int mapX = (int)all->ray->pos->x;
-      // int mapY = (int)all->ray->pos->y;
-
-      //length of ray from one x or y-side to next x or y-side
-      //these are derived as:
-      //deltaDistX = sqrt(1 + (rayDirY * rayDirY) / (rayDirX * rayDirX))
-      //deltaDistY = sqrt(1 + (rayDirX * rayDirX) / (rayDirY * rayDirY))
-      //which can be simplified to abs(|rayDir| / rayDirX) and abs(|rayDir| / rayDirY)
-      //where |rayDir| is the length of the vector (rayDirX, rayDirY). Its length,
-      //unlike (dirX, dirY) is not 1, however this does not matter, only the
-      //ratio between deltaDistX and deltaDistY matters, due to the way the DDA
-      //stepping further below works. So the values can be computed as below.
-      // Division through zero is prevented, even though technically that's not
-      // needed in C++ with IEEE 754 floating point values.
-
-      // double deltaDistX = (all->ray->raydir->x == 0) ? 1e30 : std::abs(1 / rayDirX);
-      // double deltaDistY = (all->ray->raydir->y == 0) ? 1e30 : std::abs(1 / rayDirY);
-    i++;
-  }
+	i = 0;
+	// printf("%d\n", all->data->endian);
+	// printf("%d\n", all->ray->mapX);
+	printf("%f\n", all->ray->cameraX);
+	while (i < 1920)
+	{
+      all->ray->cameraX = 2 * i / (double)1920 - 1;
+      all->ray->raydir.x = all->ray->dir.x + all->ray->plane.x * all->ray->cameraX;
+      all->ray->raydir.y = all->ray->dir.y + all->ray->plane.y * all->ray->cameraX;
+      all->ray->mapX = (int)all->ray->pos.x;
+      all->ray->mapY = (int)all->ray->pos.y;
+      all->ray->deltadist.x = ft_sqrt(1 + (all->ray->raydir.y * all->ray->raydir.y) / (all->ray->raydir.y * all->ray->raydir.y));
+      all->ray->deltadist.y = ft_sqrt(1 + (all->ray->raydir.x * all->ray->raydir.x) / (all->ray->raydir.y * all->ray->raydir.y));
+		i++;
+	}
 	return (0);
 }

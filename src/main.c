@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 15:38:44 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:24:41 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ int main(int argc, char **argv)
     (void)argc;
     (void)argv;
     init_cub(&all);
+    all.ray = malloc(sizeof(t_ray));
     init_ray(&all);
     ft_mlx(&all);
     free_exit(&all);

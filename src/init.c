@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 16:01:28 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:21:34 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,22 +29,23 @@ void    init_cub(t_all *all)
 
 void	init_ray(t_all *all)
 {
-	
-	all->ray = malloc(sizeof(t_ray));
-	all->ray->pos = malloc(sizeof(t_vector));
-	all->ray->dir = malloc(sizeof(t_vector));
-	all->ray->plane = malloc(sizeof(t_vector));
-	all->ray->pos->x = 5;
-	all->ray->pos->y = 4;
-	all->ray->dir->x = -1;
-	all->ray->dir->y = 0;
-	all->ray->plane->x = 0;
-	all->ray->plane->y = 0.66;
+	// all->ray = malloc(sizeof(t_ray));
+	// all->ray->pos = malloc(sizeof(t_vector));
+	// all->ray->dir = malloc(sizeof(t_vector));
+	// all->ray->plane = malloc(sizeof(t_vector));
+	all->ray->pos.x = 5;
+	all->ray->pos.y = 4;
+	all->ray->dir.x = -1;
+	all->ray->dir.y = 0;
+	all->ray->plane.x = 0;
+	all->ray->plane.y = 0.66;
 	all->ray->time = 0;
 	all->ray->oldtime = 0;
 	all->ray->cameraX = 0;
-	all->ray->raydir = malloc(sizeof(t_vector));
-	all->ray->raydir->x = 0;
-	all->ray->raydir->y = 0;
-	all->ray->sidedist = malloc(sizeof(t_vector));
+	// all->ray->raydir = malloc(sizeof(t_vector));
+	all->ray->raydir.x = 0;
+	all->ray->raydir.y = 0;
+	// all->ray->sidedist = malloc(sizeof(t_vector));
+	// all->ray->deltadist = malloc(sizeof(t_vector));
+	all->ray->mapX = 0;
 }
