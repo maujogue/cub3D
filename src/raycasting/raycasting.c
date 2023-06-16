@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:56:12 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/16 10:57:58 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:00:19 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,19 @@ int	raycasting(t_all *all)
 	i = 0;
 	while (i < 1920)
 	{
-      all->ray->cameraX = 2 * i / (double)1920 - 1;
-      all->ray->raydir.x = all->ray->dir.x + all->ray->plane.x * all->ray->cameraX;
-      all->ray->raydir.y = all->ray->dir.y + all->ray->plane.y * all->ray->cameraX;
-      all->ray->mapX = (int)all->ray->pos.x;
-      all->ray->mapY = (int)all->ray->pos.y;
-      all->ray->deltadist.x = sqrt(1 + (all->ray->raydir.y * all->ray->raydir.y) / (all->ray->raydir.y * all->ray->raydir.y));
-      all->ray->deltadist.y = sqrt(1 + (all->ray->raydir.x * all->ray->raydir.x) / (all->ray->raydir.y * all->ray->raydir.y));
+		all->ray->cameraX = 2 * i / (double)1920 - 1;
+		all->ray->raydir.x = all->ray->dir.x
+			+ all->ray->plane.x * all->ray->cameraX;
+		all->ray->raydir.y = all->ray->dir.y
+			+ all->ray->plane.y * all->ray->cameraX;
+		all->ray->mapX = (int)all->ray->pos.x;
+		all->ray->mapY = (int)all->ray->pos.y;
+		all->ray->deltadist.x = sqrt(1
+				+ (all->ray->raydir.y * all->ray->raydir.y)
+				/ (all->ray->raydir.y * all->ray->raydir.y));
+		all->ray->deltadist.y = sqrt(1
+				+ (all->ray->raydir.x * all->ray->raydir.x)
+				/ (all->ray->raydir.y * all->ray->raydir.y));
 		i++;
 	}
 	return (0);

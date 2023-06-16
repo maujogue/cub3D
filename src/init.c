@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/16 10:38:46 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:42:56 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,5 @@ void	init_ray(t_all *all)
 	// all->ray->sidedist = malloc(sizeof(t_vector));
 	// all->ray->deltadist = malloc(sizeof(t_vector));
 	all->ray->mapX = 0;
+	all->ray->inWall = 0;
 }

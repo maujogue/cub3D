@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/16 10:35:10 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 12:49:59 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,17 +55,22 @@ typedef struct s_map
 
 typedef struct s_ray
 {
-	t_vector pos;
-	t_vector dir;
-	t_vector plane;
+	t_vector pos;              //position du perso
+	t_vector dir;             //la direction
+	t_vector plane;             //plan de la cam perpendiculaire a la direction
 	double	time;
 	double	oldtime;
-	double	cameraX;
-	t_vector raydir;
-	t_vector sidedist;
-	t_vector deltadist;
+	double	cameraX;            //0 pour le rayon en face, -1 a gauche et 1 a droite
+	t_vector raydir;					
+	t_vector sidedist;				//distance des rayons
+	t_vector deltadist;          //l'angle des rayons
 	int		mapX;
 	int		mapY;
+	double perpWallDist;
+	int		stepX;            //rayon positif en x ou negatif -1 ou +1
+	int		stepY;
+	int		inWall;            //1 si on touche un mur
+	int		sideWall;           //1 si c'est un mur devant ou derriere et 0 si c'est sur les cote
 }				t_ray;
 
 
