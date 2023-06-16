@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:18:09 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 16:40:18 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:18:05 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,40 @@ int	check_map_caracters(char **map)
 	return (0);
 }
 
+int	check_multiple_player(char **map)
+{
+	int	i;
+	int	j;
+	int	nb_player;
+
+	i = -1;
+	j = -1;
+	nb_player = 0;
+	while (map[++j])
+	{
+		while (map[j][++i])
+		{
+			if (ft_strchr("NSEW", map[j][i]))
+				nb_player++;
+		}
+		i = 0;
+	}
+	return (nb_player);
+}
+
 void	check_map(t_all *all)
 {
 	int	res;
+	int	nb_player;
 
+	nb_player = check_multiple_player(all->pars->map);
+	if (nb_player > 1)
+		free_exit(all, 1, "Map error - Multiple players\n");
+	if (nb_player < 1)
+		free_exit(all, 1, "Map error - No player\n");
 	res = check_map_caracters(all->pars->map);
 	if (res == 1)
-		free_exit(all, 1, "Error - Invalid caracter\n");
+		free_exit(all, 1, "Map error - Invalid caracter\n");
 	if (res == 2)
-		free_exit(all, 1, "Error - Invalid map\n");
+		free_exit(all, 1, "Map error - Invalid map\n");
 }
