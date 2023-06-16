@@ -12,7 +12,9 @@ DIR						= src/
 
 SRC			 			=	main.c	init.c	utils.c	keypress.c	free.c\
 							parsing/parsing.c	parsing/colors.c	parsing/check_map.c parsing/lst_utils.c\
-							mlx.c raycasting/raycasting.c	raycasting/draw_minimap.c\
+							mlx.c 
+							raycasting/raycasting.c		raycasting/draw_minimap.c		raycasting/move_minimap.c
+							
 
 							
 OBJECTS			    	= $(SRC:%.c=$(BUILD_DIR)%.o)
@@ -51,7 +53,7 @@ $(NAME): 				$(OBJECTS) $(LIB_DIR)$(LIBFT)
 						$(CC) $(OBJECTS) -o $(NAME) $(LIB_DIR)$(LIBFT) $(MINILIB_DIR)$(MINILIB) $(LINUX)
 
 sanitize :				$(OBJECTS) $(LIB_DIR)$(LIBFT)
-						$(CC) $(SANITIZE) $(OBJECTS) -o $(NAME) $(LIB_DIR) $(LIBFT) $(MINILIB_DIR)$(MINILIB) $(LINUX)
+						$(CC) $(SANITIZE) $(OBJECTS) -o $(NAME) $(LIB_DIR)$(LIBFT) $(MINILIB_DIR)$(MINILIB) $(LINUX)
 
 lib:
 						@make -C $(LIB_DIR) --no-print-directory

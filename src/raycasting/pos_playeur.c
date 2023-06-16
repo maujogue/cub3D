@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   pos_playeur.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/14 15:33:07 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/16 10:29:46 by avaganay         ###   ########.fr       */
+/*   Created: 2023/06/15 14:03:20 by avaganay          #+#    #+#             */
+/*   Updated: 2023/06/15 14:33:47 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../header/cub.h"
+#include "../../header/cub.h"
 
-void    ft_mlx(t_all *all)
+void	find_pos_playeur(t_all *all)
 {
-    draw_map(all);
-    mlx_put_image_to_window(all->mlx, all->mlx_win, all->data->img, 0, 0);
-    mlx_hook(all->mlx_win, 17, 1L << 17, close_win, all);
-    mlx_hook(all->mlx_win, 2, (1L << 0), ft_key, &all);
-    mlx_loop_hook(all->mlx, raycasting, all);
-    mlx_loop(all->mlx);
+    int	x;
+    int	y;
+
+	x = 0;
+	while (all->map->map[x])
+	{
+		y = 0;
+		while (all->map->map[x][y])
+		{
+			if (all->map->map[x][y] == 'N' || all->map->map[x][y] == 'W' ||
+				all->map->map[x][y] == 'E' || all->map->map[x][y] == 'S')
+			{
+				all->ray->pos->x = (double)x;
+				all->ray->pos->y = (double)y;
+				return ;
+			}
+			y++;
+		}
+		x++;
+	}
 }

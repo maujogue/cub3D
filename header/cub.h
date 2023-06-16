@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 16:37:42 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/16 10:40:48 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,11 @@
 
 # include "typedef.h"
 
+//-----------------------Init--------------//
 void    init_cub(t_all *all, char *map);
+void    init_ray(t_all *all);
 
-void	check_keypress(t_all *all);
+//-----------------------FREE--------------//
 
 /**************************************Parsing**************************************/
 
@@ -45,9 +47,25 @@ int     ft_strlen_array(char **str);
 
 /**************************************Free*****************************************/
 
+//-----------------------Boucle--------------//
 void	ft_mlx(t_all *all);
 
 void    free_exit(t_all *all, int exit_code, char *error_message);
 void	free_array(char **tab);
 void	free_lst(t_list *lst);
+
+//-----------------------MiniMAP--------------//
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	draw_map(t_all *all);
+
+//-----------------------KEYPRESS--------------//
+int	close_win(t_all *all);
+int	ft_key(int keycode, t_all *all);
+
+//-----------------------RAYCASTING--------------//
+int	raycasting(t_all *all);
+
+
+
 #endif
