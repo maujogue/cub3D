@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/17 12:05:00 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/17 13:41:01 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void	find_pos_playeur(t_all *all);
 void	ft_draw_line(t_all *all);
 void    move_nwes(t_all *all, char c);
 void	draw_cube(t_all *all, int i, int j, char c);
-void	draw_playeur(t_all *all, int i, int j);
+void	draw_playeur(t_all *all, double i, double j);
 void	refresh(t_all *all);
 
 //-----------------------KEYPRESS--------------//
