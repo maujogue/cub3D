@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:56:12 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/19 14:22:50 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:01:15 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	raycasting(t_all *all)
 				all->ray->mapY += all->ray->stepY;
 				all->ray->sideWall = 1;
 			}
-			if (all->pars->map[all->ray->mapX][all->ray->mapY] > 0)
+			if (all->pars->map[all->ray->mapX][all->ray->mapY] == '1')
 			{
 				// printf("TOUCHEEEEEE mapx%d, mapy%d\n",all->ray->mapX, all->ray->mapY);
 				all->ray->inWall = 1;
@@ -123,14 +123,21 @@ int	raycasting(t_all *all)
 		// ft_verLine(i, all, all->ray->drawEnd, 0x00FF0000);
 		// printf("x  = %d start %d end %d \n", i, all->ray->drawStart, all->ray->drawEnd);
 		int	d;
+		int color;
 		d = 0;
+		/////////////////////////////////////////plafond
 		while (all->ray->drawStart > d)
 			my_mlx_pixel_put(all->data, i, d++, 0x000000FF);
+		/////////////////////////////////////////////mur
+		color = 0x80808080;
+		if (all->ray->sideWall == 1)
+			color = 0x00A9A9A9;
 		while (all->ray->drawStart < all->ray->drawEnd)
-			my_mlx_pixel_put(all->data, i, all->ray->drawStart++, 0x80808080);
+			my_mlx_pixel_put(all->data, i, all->ray->drawStart++, color);
+		////////////////////////////////////////////////////sol
 		d = all->ray->drawEnd;
 		while (d > 0 && d < 1080)
-			my_mlx_pixel_put(all->data, i, d++, 0x000000FF);
+			my_mlx_pixel_put(all->data, i, d++, 0x90EE90);
 		ft_draw_line(all);
 		// printf("%f %f\n", all->ray->pos.x, all->ray->pos.y);
 		i++;
