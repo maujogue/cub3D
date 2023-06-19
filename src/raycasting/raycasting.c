@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:56:12 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/17 11:50:02 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:22:50 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,11 @@
 
 void	ft_verLine(int x, t_all *all, int drawEnd, int color)
 {
+	// printf("%d\n", x);
+	printf("Verline start: %d, end :%d\n", all->ray->drawStart, drawEnd);
 	while (all->ray->drawStart < drawEnd)
 	{
+		// while (x < 1920)
 		my_mlx_pixel_put(all->data, x, all->ray->drawStart, color);
 		all->ray->drawStart++;
 	}
@@ -50,10 +53,11 @@ int	raycasting(t_all *all)
 		all->ray->mapY = (int)all->ray->pos.y;
 		all->ray->deltadist.x = sqrt(1
 				+ (all->ray->raydir.y * all->ray->raydir.y)
-				/ (all->ray->raydir.y * all->ray->raydir.y));
+				/ (all->ray->raydir.x * all->ray->raydir.x));
 		all->ray->deltadist.y = sqrt(1
 				+ (all->ray->raydir.x * all->ray->raydir.x)
 				/ (all->ray->raydir.y * all->ray->raydir.y));
+		all->ray->inWall = 0;
 		// printf("Raydir x: %f\n", all->ray->raydir.x);
 		// printf("Raydir y: %f\n", all->ray->raydir.y);
 		// printf("%d\n", all->ray->mapX);
@@ -101,7 +105,7 @@ int	raycasting(t_all *all)
 			}
 			if (all->pars->map[all->ray->mapX][all->ray->mapY] > 0)
 			{
-				printf("TOUCHEEEEEE mapx%d, mapy%d\n",all->ray->mapX, all->ray->mapY);
+				// printf("TOUCHEEEEEE mapx%d, mapy%d\n",all->ray->mapX, all->ray->mapY);
 				all->ray->inWall = 1;
 			}
 		}
@@ -110,16 +114,33 @@ int	raycasting(t_all *all)
 		else
 			all->ray->perpWallDist = (all->ray->sidedist.y - all->ray->deltadist.y);
 		all->ray->lineHeight = (int)(1080 / all->ray->perpWallDist);
-		all->ray->drawStart = -1 * all->ray->lineHeight / 2 + 1080 / 2;
+		all->ray->drawStart = -all->ray->lineHeight / 2 + 1080 / 2;
 		if(all->ray->drawStart < 0)
 			all->ray->drawStart = 0;
 		all->ray->drawEnd = all->ray->lineHeight / 2 + 1080 / 2;
 		if(all->ray->drawEnd >= 1080)
-			all->ray->drawEnd = 1080 - 1;
-		ft_verLine(i, all, all->ray->drawEnd, 0x00FF0000);
+			all->ray->drawEnd = 1080;
+		// ft_verLine(i, all, all->ray->drawEnd, 0x00FF0000);
+		// printf("x  = %d start %d end %d \n", i, all->ray->drawStart, all->ray->drawEnd);
+		int	d;
+		d = 0;
+		while (all->ray->drawStart > d)
+			my_mlx_pixel_put(all->data, i, d++, 0x000000FF);
+		while (all->ray->drawStart < all->ray->drawEnd)
+			my_mlx_pixel_put(all->data, i, all->ray->drawStart++, 0x80808080);
+		d = all->ray->drawEnd;
+		while (d > 0 && d < 1080)
+			my_mlx_pixel_put(all->data, i, d++, 0x000000FF);
 		ft_draw_line(all);
+		// printf("%f %f\n", all->ray->pos.x, all->ray->pos.y);
 		i++;
 	}
+	// mlx_destroy_image(all->mlx, all->data->img);
+	// all->data->img = mlx_new_image(all->mlx, 1920, 1080);
+	mlx_put_image_to_window(all->mlx, all->mlx_win, all->data->img, 0, 0);
+	draw_map(all);
+	draw_playeur(all,all->ray->pos.x, all->ray->pos.y);
+	// refresh(all);
 	return (0);
 }
 
