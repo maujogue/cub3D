@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:42:27 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/16 14:27:24 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/17 13:40:49 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,25 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 		return ;
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
 	*(unsigned int*)dst = color;
+}
+
+void	draw_playeur(t_all *all, double i, double j)
+{
+	int	x;
+	int	y;
+
+	x = 0;
+	while (x < SIZE_MINIMAP - 5)
+	{
+		y = 0;
+		while (y < SIZE_MINIMAP - 5)
+		{
+			if (x > 15 && x < SIZE_MINIMAP - 15 && y > 15 && y < SIZE_MINIMAP - 15)
+				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x00FF0000);
+			y++;
+		}
+		x++;
+	}
 }
 
 void	draw_cube(t_all *all, int i, int j, char c)
@@ -37,11 +56,11 @@ void	draw_cube(t_all *all, int i, int j, char c)
 				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x000000FF);
 			else if (c == '1')
 				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x0000FF00);
-			else if (c == 'N')
+			else if (c != '0' && c != '1')
 			{
 				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x000000FF);
-				if (x > 15 && x < SIZE_MINIMAP - 15 && y > 15 && y < SIZE_MINIMAP - 15)
-					my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x00FF0000);
+				// if (x > 15 && x < SIZE_MINIMAP - 15 && y > 15 && y < SIZE_MINIMAP - 15)
+				// 	my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x00FF0000);
 			}
 			y++;
 		}
@@ -70,4 +89,5 @@ void	draw_map(t_all *all)
 		}
 		i++;
 	}
+	my_mlx_pixel_put(all->data, (int)all->ray->pos.x , (int)all->ray->pos.y, 0x00FF0000);
 }

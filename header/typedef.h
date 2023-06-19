@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/16 14:02:32 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/16 15:25:21 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define TYPEDEF_H
 
 # define SIZE_MINIMAP 50
+// # define HEIGHT 1080
+// # define WIGHT 1920
 # define W_KEY 119
 # define A_KEY 97
 # define S_KEY 115
@@ -71,6 +73,9 @@ typedef struct s_ray
 	int		stepY;
 	int		inWall;            //1 si on touche un mur
 	int		sideWall;           //1 si c'est un mur devant ou derriere et 0 si c'est sur les cote
+	int		drawStart;
+	int		drawEnd;
+	int		lineHeight;
 }				t_ray;
 
 
