@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 16:23:35 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 16:26:41 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/20 12:56:30 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,26 @@ char    *get_lst_content(t_list *lst, char *key)
 {
     char    *content;
     char    *res;
+    char    *temp;
 
+    res = NULL;
     while (lst)
     {
         content = (char *)lst->content;
-        res = ft_strnstr(content, key, ft_strlen(key));
-        if (res)
+        temp = ft_strnstr(content, key, ft_strlen(key));
+        if (temp)
         {
-            res = ft_strtrim(res, key);
+            if (!res)
+                res = ft_strtrim(temp, key);
+            else
+                return (NULL);
             if (!res)
                 return (NULL);
-            return (res);
+            
         }
         lst = lst->next;
     }
-    return (NULL);
+    return (res);
     
 }
 
@@ -84,6 +89,8 @@ char	**lst_to_tab(t_list	*lst)
     tab = malloc(sizeof(char *) * (ft_lstsize(lst) + 1));
 	while (lst)
 	{
+        if (ft_strlen(lst->content) < 3)
+            return (NULL);
 		tab[i]= ft_strtrim_right(lst->content, "\n ");
 		if (!tab[i])
 			return (free_array(tab), NULL);
