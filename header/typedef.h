@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/19 14:14:37 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:04:47 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@
 # define A_KEY 97
 # define S_KEY 115
 # define D_KEY 100
+# define L_ARROW 65361
+# define R_ARROW 65363
 # define ESC_KEY 65307
-# define SPACE_KEY 32
 # define SPACE_KEY 32
 
 typedef struct	s_vector
