@@ -6,22 +6,23 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/16 15:25:21 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/19 15:04:47 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef TYPEDEF_H
 # define TYPEDEF_H
 
-# define SIZE_MINIMAP 50
+# define SIZE_MINIMAP 20
 // # define HEIGHT 1080
 // # define WIGHT 1920
 # define W_KEY 119
 # define A_KEY 97
 # define S_KEY 115
 # define D_KEY 100
+# define L_ARROW 65361
+# define R_ARROW 65363
 # define ESC_KEY 65307
-# define SPACE_KEY 32
 # define SPACE_KEY 32
 
 typedef struct	s_vector

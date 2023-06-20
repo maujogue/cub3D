@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 13:59:40 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/16 14:46:36 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/19 14:00:39 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,12 @@
 
 void	ft_draw_line(t_all *all)
 {
-	int x = (int)all->ray->pos.x;
-	int y = (int)all->ray->pos.y;
-	int x2 = 16;
-	int y2 = 5;
+	int x = (int)all->ray->pos.x * SIZE_MINIMAP;
+	// printf("XXXXXXXXXXX: %d\n", x);
+	int y = (int)all->ray->pos.y * SIZE_MINIMAP;
+	// printf("YYYYYYYYYYYYYYY: %d\n", y);
+	int x2 = all->ray->mapX * SIZE_MINIMAP;
+	int y2 = all->ray->mapY * SIZE_MINIMAP;
 	int dx = abs(x2 - x);
 	int dy = abs(y2 - y);
 	int sx = (x < x2) ? 1 : -1;
