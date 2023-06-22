@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:56:12 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/19 15:01:15 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/21 15:41:46 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,9 +110,11 @@ int	raycasting(t_all *all)
 			}
 		}
 		if(all->ray->sideWall == 0)
-			all->ray->perpWallDist = (all->ray->sidedist.x - all->ray->deltadist.x);
+			all->ray->perpWallDist = fabs((all->ray->mapX - all->ray->pos.x + (1 - all->ray->stepX) / 2) / all->ray->raydir.x);
+			//(all->ray->sidedist.x - all->ray->deltadist.x);
 		else
-			all->ray->perpWallDist = (all->ray->sidedist.y - all->ray->deltadist.y);
+			all->ray->perpWallDist = fabs((all->ray->mapY - all->ray->pos.y + (1 - all->ray->stepY) / 2) / all->ray->raydir.y);
+			//(all->ray->sidedist.y - all->ray->deltadist.y);
 		all->ray->lineHeight = (int)(1080 / all->ray->perpWallDist);
 		all->ray->drawStart = -all->ray->lineHeight / 2 + 1080 / 2;
 		if(all->ray->drawStart < 0)
