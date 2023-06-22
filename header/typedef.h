@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/19 15:04:47 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/22 09:41:58 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ typedef struct s_ray
 	int		drawStart;
 	int		drawEnd;
 	int		lineHeight;
+	double rotSpeed;
+	double moveSpeed;
 }				t_ray;
 
 

@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:25:32 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/19 13:53:22 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/22 09:50:51 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,24 @@ int	ft_key(int keycode, t_all *all)
 		// ft_mouv(img, D_KEY);
 	// draw_map(all);
 	// draw_cube(all,(int)all->ray->pos.x, (int)all->ray->pos.y, 'N');
+	else if (keycode == R_ARROW)
+    {
+      double oldDirX = all->ray->dir.x;
+      all->ray->dir.x = all->ray->dir.x * cos(-all->ray->rotSpeed) - all->ray->dir.y * sin(-all->ray->rotSpeed);
+      all->ray->dir.y = oldDirX * sin(-all->ray->rotSpeed) + all->ray->dir.y * cos(-all->ray->rotSpeed);
+      double oldPlaneX = all->ray->plane.x;
+      all->ray->plane.x = all->ray->plane.x * cos(-all->ray->rotSpeed) - all->ray->plane.y * sin(-all->ray->rotSpeed);
+      all->ray->plane.y = oldPlaneX * sin(-all->ray->rotSpeed) + all->ray->plane.y * cos(-all->ray->rotSpeed);
+    }
+	else if (keycode == L_ARROW)
+	{
+		double oldDirX = all->ray->dir.x;
+		all->ray->dir.x = all->ray->dir.x * cos(all->ray->rotSpeed) - all->ray->dir.y * sin(all->ray->rotSpeed);
+		all->ray->dir.y = oldDirX * sin(all->ray->rotSpeed) + all->ray->dir.y * cos(all->ray->rotSpeed);
+		double oldPlaneX = all->ray->plane.x;
+		all->ray->plane.x = all->ray->plane.x * cos(all->ray->rotSpeed) - all->ray->plane.y * sin(all->ray->rotSpeed);
+		all->ray->plane.y = oldPlaneX * sin(all->ray->rotSpeed) + all->ray->plane.y * cos(all->ray->rotSpeed);
+	}
 	refresh(all);
 	return (0);
 }

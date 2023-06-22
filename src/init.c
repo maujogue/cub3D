@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/17 15:23:17 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/22 09:54:41 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ void	init_ray(t_all *all)
 	// all->ray->dir = malloc(sizeof(t_vector));
 	// all->ray->plane = malloc(sizeof(t_vector));
 	find_pos_playeur(all);
-	printf("x:%f\n", all->ray->pos.x);
-	printf("y:%f\n", all->ray->pos.y);
+	// printf("x:%f\n", all->ray->pos.x);
+	// printf("y:%f\n", all->ray->pos.y);
 	all->ray->dir.x = -1;
 	all->ray->dir.y = 0;
 	all->ray->plane.x = 0;
@@ -52,4 +52,6 @@ void	init_ray(t_all *all)
 	// all->ray->deltadist = malloc(sizeof(t_vector));
 	all->ray->mapX = 0;
 	all->ray->inWall = 0;
+	all->ray->rotSpeed = 0.06;
+	all->ray->moveSpeed = 0.06;
 }

@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 13:10:45 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/20 13:02:16 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/22 09:53:54 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,25 +26,25 @@ void    move_nwes(t_all *all, char c)
 	{
 		// printf("WALLX%dY%d\n", (int)round(all->ray->pos.x), (int)round(all->ray->pos.y - 1));
 		if (all->pars->map[all->ray->mapX][ all->ray->mapY - 1] != '1')
-			all->ray->pos.y -= 0.1;
+			all->ray->pos.y += all->ray->dir.x * 0.1;
 	}
 	if (c == 'E')
 	{
 		// printf("WALLX%dY%d\n", (int)round(all->ray->pos.x), (int)round(all->ray->pos.y + 1));
 		if (all->pars->map[all->ray->mapX][ all->ray->mapY + 1] != '1')
-			all->ray->pos.y += 0.1;
+			all->ray->pos.y -= all->ray->dir.x * 0.1;
 	}
 	if (c == 'S')
 	{
 		// printf("WALLX%dY%d\n", (int)round(all->ray->pos.x + 1), (int)round(all->ray->pos.y));
 		if (all->pars->map[all->ray->mapX + 1][ all->ray->mapY] != '1')
-			all->ray->pos.x += 0.1;
+			all->ray->pos.x -= all->ray->dir.y * 0.1;
 	}
 	if (c == 'N')
 	{
 		// printf("WALLX%dY%d\n", (int)round(all->ray->pos.x - 1), (int)round(all->ray->pos.y));
 		if (all->pars->map[all->ray->mapX - 1][ all->ray->mapY] != '1')
-			all->ray->pos.x -= 0.1;
+			all->ray->pos.x += all->ray->dir.y * 0.1;
 	}
 	// printf("x: %f\n", all->ray->pos.x);
 	// printf("y: %f\n", all->ray->pos.y);
