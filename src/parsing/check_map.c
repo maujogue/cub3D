@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:18:09 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/20 10:45:12 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:11:44 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,12 @@ void	check_map(t_all *all)
 	int	res;
 	int	nb_player;
 
-	nb_player = check_multiple_player(all->pars->map);
+	nb_player = check_multiple_player(all->pars.map);
 	if (nb_player > 1)
 		free_exit(all, 1, "Error\nMap - Multiple players\n");
 	if (nb_player < 1)
 		free_exit(all, 1, "Error\nMap - No player\n");
-	res = check_map_caracters(all->pars->map);
+	res = check_map_caracters(all->pars.map);
 	if (res == 1)
 		free_exit(all, 1, "Error\nMap - Invalid caracter\n");
 	if (res == 2)

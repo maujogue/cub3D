@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:50 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/23 12:18:13 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:11:44 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,16 +36,16 @@ void	set_player_position(t_all *all)
 	int	y;
 
 	y = 0;
-	while (all->pars->map[y])
+	while (all->pars.map[y])
 	{
 		x = 0;
-		while (all->pars->map[y][x])
+		while (all->pars.map[y][x])
 		{
-			if (ft_strchr("NSEW", all->pars->map[y][x]))
+			if (ft_strchr("NSEW", all->pars.map[y][x]))
 			{
-				all->p_pos->x = x;
-				all->p_pos->y = y;
-				printf("%f %f", all->p_pos->x, all->p_pos->y);
+				all->ray.p_pos.x = x;
+				all->ray.p_pos.y = y;
+				printf("%f %f", all->ray.p_pos.x, all->ray.p_pos.y);
 				return ;
 			}
 			x++;

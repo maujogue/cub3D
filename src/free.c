@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:18:10 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/20 11:40:48 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:11:44 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,11 @@ void	free_array(char **tab)
 
 void	free_pars(t_all *all)
 {
-	free_array(all->pars->map);
-    free(all->pars->north_wall);
-    free(all->pars->south_wall);
-    free(all->pars->east_wall);
-    free(all->pars->west_wall);
+	free_array(all->pars.map);
+    free(all->pars.north_wall);
+    free(all->pars.south_wall);
+    free(all->pars.east_wall);
+    free(all->pars.west_wall);
 }
 
 void    free_exit(t_all *all, int exit_code, char *error_message)

@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/23 15:54:23 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:11:10 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,18 +54,17 @@ typedef struct pars
 
 typedef struct s_ray
 {
-	
+	t_vector	p_pos;
+	t_vector	pd_pos;
+	int			pa;	
 }				t_ray;
 
 
 typedef struct all
 {
-	t_data		*data;
-	t_ray		*ray;		
-	t_pars		*pars;
-	t_vector	*p_pos;
-	t_vector	*pd_pos;
-	int			pa;		
+	t_data		data;
+	t_ray		ray;		
+	t_pars		pars;
 	void		*mlx;
 	void		*mlx_win;
 	int			mouse_pos;
