@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:00:30 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/23 16:10:35 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 18:35:13 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ int	refresh(t_all *all)
     &all->data.bits_per_pixel, &all->data.line_length, &all->data.endian);
     // mlx_clear_window(all->mlx,all->mlx_win);
 	draw_minimap(all);
+    // draw_line(all);
+    cast_rays(all);
 	mlx_put_image_to_window(all->mlx, all->mlx_win, all->data.img, 0, 0);
 	return (0);
 }

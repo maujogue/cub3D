@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:50 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/23 16:11:44 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:38:15 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	set_player_position(t_all *all)
 			{
 				all->ray.p_pos.x = x;
 				all->ray.p_pos.y = y;
-				printf("%f %f", all->ray.p_pos.x, all->ray.p_pos.y);
 				return ;
 			}
 			x++;

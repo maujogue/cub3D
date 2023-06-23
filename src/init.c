@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/23 16:12:59 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:30:39 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,5 +44,7 @@ void	init_ray(t_all *all)
 	all->keys[1] = 1;
 	all->keys[2] = 1;
 	all->keys[3] = 1;
-	all->ray.pa = 0;
+	all->keys[4] = 1;
+	all->keys[5] = 1;
+	all->ray.angle = 0;
 }

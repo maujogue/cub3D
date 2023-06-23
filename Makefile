@@ -14,7 +14,7 @@ SRC			 			=	main.c	init.c	utils.c	keypress.c	free.c\
 							parsing/parsing.c	parsing/colors.c	parsing/check_map.c parsing/lst_utils.c\
 							mlx.c \
 							raycasting/draw_minimap.c		raycasting/move.c\
-							raycasting/refresh.c
+							raycasting/refresh.c	raycasting/draw_rays.c
 							
 
 							

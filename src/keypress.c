@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:25:32 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/23 13:53:30 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 16:38:53 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,12 @@ int	key_press(int keycode, t_all *all)
     else if (keycode == A_KEY)
         all->keys[2] = 0;
     else if (keycode == D_KEY)
-	{
         all->keys[3] = 0;
+	else if (keycode == L_ARROW)
+        all->keys[4] = 0;
+	else if (keycode == R_ARROW)
+	{
+        all->keys[5] = 0;
 	}
 	return (0);
 }
@@ -44,8 +48,12 @@ int	key_release(int keycode, t_all *all)
     else if (keycode == A_KEY)
         all->keys[2] = 1;
     else if (keycode == D_KEY)
-    {
         all->keys[3] = 1;
+	else if (keycode == L_ARROW)
+        all->keys[4] = 1;
+	else if (keycode == R_ARROW)
+	{
+        all->keys[5] = 1;
 	}
 	return (0);
 }
