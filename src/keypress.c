@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keypress.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:25:32 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/19 13:53:22 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/21 11:15:23 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,20 @@ int	ft_key(int keycode, t_all *all)
 		// ft_mouv(img, D_KEY);
 	// draw_map(all);
 	// draw_cube(all,(int)all->ray->pos.x, (int)all->ray->pos.y, 'N');
-	refresh(all);
+	// refresh(all);
+	return (0);
+}
+
+int	ft_mouse( int x, int y, t_all *all)
+{
+	(void)y;
+
+	if (x > all->mouse_pos)
+		move_nwes(all, 'E');
+	else
+		move_nwes(all, 'W');
+	if (x > WIDTH || x < 0)
+		x = WIDTH / 2;
+	all->mouse_pos = x;
 	return (0);
 }

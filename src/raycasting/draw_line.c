@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_line.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/16 13:59:40 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/19 14:00:39 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/21 10:25:32 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_draw_line(t_all *all)
 	{
 		// printf("x: %d, y: %d\n", x , y);
 		// printf("x2: %d, y2: %d\n", x , y);
-		my_mlx_pixel_put(all->data, x, y, 0x00FF0000);
+		my_mlx_pixel_put(all->data, y, x, 0x00FF0000);
 		if (x == x2 && y == y2)
 			break;
 		int e2 = 2 * err;

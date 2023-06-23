@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   typedef.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/19 15:04:47 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/21 10:52:45 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define TYPEDEF_H
 
 # define SIZE_MINIMAP 20
-// # define HEIGHT 1080
-// # define WIGHT 1920
+# define HEIGHT 1080
+# define WIDTH 1920
 # define W_KEY 119
 # define A_KEY 97
 # define S_KEY 115
@@ -88,6 +88,7 @@ typedef struct all
 	t_pars		*pars;			
 	void	*mlx;
 	void	*mlx_win;
+	int			mouse_pos;
 	}	t_all;
 
 #endif

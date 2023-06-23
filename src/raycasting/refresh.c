@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   refresh.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:00:30 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/19 14:45:24 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/21 10:36:45 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub.h"
 
-void	refresh(t_all *all)
+int	refresh(t_all *all)
 {
 	mlx_destroy_image(all->mlx, all->data->img);
     all->data->img = mlx_new_image(all->mlx, 1920, 1080);
@@ -23,4 +23,5 @@ void	refresh(t_all *all)
 	draw_map(all);
 	draw_playeur(all, all->ray->pos.x, all->ray->pos.y);
 	raycasting(all);
+	return (0);
 }
