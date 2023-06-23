@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/21 16:35:43 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:29:54 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,25 +43,11 @@ void    init_cub(t_all *all, char *map)
 
 void	init_ray(t_all *all)
 {
+	all->p_pos = malloc(sizeof(t_vector));
 	all->ray = malloc(sizeof(t_ray));
-	// all->ray->pos = malloc(sizeof(t_vector));
-	// all->ray->dir = malloc(sizeof(t_vector));
-	// all->ray->plane = malloc(sizeof(t_vector));
-	find_pos_playeur(all);
-	printf("x:%f\n", all->ray->pos.x);
-	printf("y:%f\n", all->ray->pos.y);
-	all->ray->dir.x = -1;
-	all->ray->dir.y = 0;
-	all->ray->plane.x = 0;
-	all->ray->plane.y = 0.66;
-	all->ray->time = 0;
-	all->ray->oldtime = 0;
-	all->ray->cameraX = 0;
-	// all->ray->raydir = malloc(sizeof(t_vector));
-	all->ray->raydir.x = 0;
-	all->ray->raydir.y = 0;
-	// all->ray->sidedist = malloc(sizeof(t_vector));
-	// all->ray->deltadist = malloc(sizeof(t_vector));
-	all->ray->mapX = 0;
-	all->ray->inWall = 0;
+	set_player_position(all);
+	all->keys[0] = 1;
+	all->keys[1] = 1;
+	all->keys[2] = 1;
+	all->keys[3] = 1;
 }

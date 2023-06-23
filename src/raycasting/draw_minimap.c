@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_minimap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:42:27 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/19 14:43:07 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/23 15:50:36 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,72 +22,85 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	*(unsigned int*)dst = color;
 }
 
-void	draw_playeur(t_all *all, double i, double j)
+
+void	draw_square(t_all *all, t_vector start, int len, int color)
 {
-	int	x;
-	int	y;
-
-	x = 0;
-	while (x < SIZE_MINIMAP - 5)
-	{
-		y = 0;
-		while (y < SIZE_MINIMAP - 5)
-		{
-			if (x > 15 && x < SIZE_MINIMAP - 15 && y > 15 && y < SIZE_MINIMAP - 15)
-				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x00FF0000);
-			y++;
-		}
-		x++;
-	}
-}
-
-void	draw_cube(t_all *all, int i, int j, char c)
-{
-	int	x;
-	int	y;
-
-	x = 0;
-	while (x < SIZE_MINIMAP - 5)
-	{
-		y = 0;
-		while (y < SIZE_MINIMAP - 5)
-		{
-			if (c == '0')
-				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x778899);
-			else if (c == '1')
-				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x0000FF00);
-			else if (c != '0' && c != '1')
-			{
-				my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x778899);
-				// if (x > 15 && x < SIZE_MINIMAP - 15 && y > 15 && y < SIZE_MINIMAP - 15)
-				// 	my_mlx_pixel_put(all->data, x + (j * SIZE_MINIMAP) , y + (i * SIZE_MINIMAP), 0x00FF0000);
-			}
-			y++;
-		}
-		x++;
-	}
-}
-
-void	draw_map(t_all *all)
-{
-	int		i;
-	int		j;
+	double	i;
+	double	j;
 
 	i = 0;
-	while (all->pars->map[i])
+	j = 0;
+	while (i < len)
 	{
 		j = 0;
-		while (all->pars->map[i][j])
+		while (j < len)
 		{
-			if (all->pars->map[i][j] == '0')
-				draw_cube(all, i , j, '0');
-			else if (all->pars->map[i][j] == '1')
-				draw_cube(all, i , j, '1');
-            else if (ft_strchr("NWES", all->pars->map[i][j]))
-				draw_cube(all, i , j, 'N');
+			my_mlx_pixel_put(all->data, start.x + i, start.y + j, color);
 			j++;
 		}
 		i++;
 	}
-	my_mlx_pixel_put(all->data, (int)all->ray->pos.x , (int)all->ray->pos.y, 0x00FF0000);
 }
+
+void	draw_minimap(t_all *all)
+{
+	int	x;
+	int	y;
+	int	len;
+	t_vector start;
+
+	len = SIZE_MINIMAP;
+	y = 0;
+	while (all->pars->map[y])
+	{
+		x = 0;
+		while (all->pars->map[y][x])
+		{
+			start.x = x * len;
+			start.y = y * len;
+			if (all->pars->map[y][x] == '1')
+				draw_square(all, start, len - 1, 0x00FF0000);
+			else if (ft_strchr("0NSEW", all->pars->map[y][x]))
+				draw_square(all, start, len - 1, 0x0000FF00);
+			x++;
+		}
+		y++;
+	}
+	start.x = all->p_pos->x * len;
+	start.y = all->p_pos->y * len;
+	draw_square(all, start, 10, 0x000000FF);
+}
+
+// void draw_minimap(t_all *all)
+// {
+// 	double x;
+// 	double y;
+// 	double len;
+// 	double radius = 5;
+//  	t_vector start;
+
+// 	len = SIZE_MINIMAP;
+// 	y = all->p_pos->y - radius;
+// 	if (y < 0)
+// 		y = 0;
+// 	while (y < all->p_pos->y + radius && all->pars->map[(int)y])
+// 	{
+// 		x = all->p_pos->x - radius;
+// 		if (x < 0)
+// 			x = 0;
+// 		while (x < all->p_pos->x + radius && all->pars->map[(int)y][(int)x])
+// 		{
+// 			start.x = (x - all->p_pos->x + radius) * len;
+// 			start.y = (y - all->p_pos->y + radius) * len;
+// 			if (all->pars->map[(int)y][(int)x] == '1')
+// 				draw_square(all, start, len - 1, 0x00FF0000);
+// 			else if (ft_strchr("0NSEW", all->pars->map[(int)y][(int)x]))
+// 				draw_square(all, start, len - 1, 0x0000FF00);
+// 			x++;
+// 		}
+// 		y++;
+// 	}
+// 	start.x = radius * len;
+// 	start.y = radius * len;
+// 	draw_square(all, start, 10, 0x000000FF);
+// }

@@ -6,15 +6,15 @@ BUILD_DIR				= build/
 
 HEADER_DIR				= header/
 
-HEADER_FILE				= cub.h
+HEADER_FILES				= header/cub.h header/typedef.h
 
 DIR						= src/
 
 SRC			 			=	main.c	init.c	utils.c	keypress.c	free.c\
 							parsing/parsing.c	parsing/colors.c	parsing/check_map.c parsing/lst_utils.c\
 							mlx.c \
-							raycasting/raycasting.c		raycasting/draw_minimap.c		raycasting/move_minimap.c	raycasting/pos_playeur.c \
-							raycasting/draw_line.c	raycasting/refresh.c
+							raycasting/draw_minimap.c		raycasting/move.c\
+							raycasting/refresh.c
 							
 
 							
@@ -38,7 +38,7 @@ MINILIB					= libmlx.a
 MINILIB_DIR				= minilibx_linux/
 LINUX					= -Lminilibx_linux -L/usr/lib -Iminilibx_linux -lXext -lX11 -lm -lz 
 
-$(BUILD_DIR)%.o:		$(DIR)%.c $(HEADER_DIR)/$(HEADER_FILE) ${LIB_DIR}*.c ${LIB_DIR}/${LIB_HEADER} ${LIB_DIR} Makefile 
+$(BUILD_DIR)%.o:		$(DIR)%.c ${HEADER_FILES} ${LIB_DIR}*.c ${LIB_DIR}/${LIB_HEADER} ${LIB_DIR} Makefile 
 						@mkdir -p $(@D)
 						$(CC) $(CFLAGS) -I$(HEADER_DIR) -I$(LIB_DIR) -I$(MINILIB_DIR) -c $< -o $@
 

@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:50 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/15 16:07:20 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 12:18:13 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,28 @@ int	ft_strlen_array(char **str)
 			i++;
 	}
 	return (i);
+}
+
+void	set_player_position(t_all *all)
+{
+	int	x;
+	int	y;
+
+	y = 0;
+	while (all->pars->map[y])
+	{
+		x = 0;
+		while (all->pars->map[y][x])
+		{
+			if (ft_strchr("NSEW", all->pars->map[y][x]))
+			{
+				all->p_pos->x = x;
+				all->p_pos->y = y;
+				printf("%f %f", all->p_pos->x, all->p_pos->y);
+				return ;
+			}
+			x++;
+		}
+		y++;
+	}
 }

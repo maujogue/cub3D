@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/21 10:47:10 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/23 13:54:36 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ void    init_cub(t_all *all, char *map);
 void    init_ray(t_all *all);
 
 //-----------------------FREE--------------//
-
+void    free_exit(t_all *all, int exit_code, char *error_message);
+void	free_array(char **tab);
+void	free_lst(t_list *lst);
 /**************************************Parsing**************************************/
 
 void    parsing(t_all *all, char *map);
@@ -48,30 +50,24 @@ int     ft_strlen_array(char **str);
 /**************************************Free*****************************************/
 
 //-----------------------Boucle--------------//
-void	ft_mlx(t_all *all);
 
-void    free_exit(t_all *all, int exit_code, char *error_message);
-void	free_array(char **tab);
-void	free_lst(t_list *lst);
+void	ft_mlx(t_all *all);
+int     refresh(t_all *all);
 
 //-----------------------MiniMAP--------------//
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
-void	draw_map(t_all *all);
-void	find_pos_playeur(t_all *all);
-void	ft_draw_line(t_all *all);
-void    move_nwes(t_all *all, char c);
-void	draw_cube(t_all *all, int i, int j, char c);
-void	draw_playeur(t_all *all, double i, double j);
-int	refresh(t_all *all);
+void	draw_minimap(t_all *all);
+void	set_player_position(t_all *all);
 
 //-----------------------KEYPRESS--------------//
-int	close_win(t_all *all);
-int	ft_key(int keycode, t_all *all);
-int	ft_mouse( int x, int y, t_all *all);
+int		close_win(t_all *all);
+int		ft_mouse( int x, int y, t_all *all);
+int		move_player(t_all *all);
+int		key_release(int keycode, t_all *all);
+int		key_press(int keycode, t_all *all);
 
 //-----------------------RAYCASTING--------------//
-int	raycasting(t_all *all);
 
 
 
