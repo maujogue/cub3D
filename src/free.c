@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathisaujogue <mathisaujogue@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:18:10 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/23 16:11:44 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/24 14:04:49 by mathisaujog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ void    free_exit(t_all *all, int exit_code, char *error_message)
 	}
 	if (all->mlx)
 	{
-		mlx_destroy_display(all->mlx);
+		// mlx_destroy_display(all->mlx);
 		free(all->mlx);
 	}
 	free_pars(all);

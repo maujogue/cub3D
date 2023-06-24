@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keypress.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathisaujogue <mathisaujogue@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:25:32 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/23 16:38:53 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/24 14:18:21 by mathisaujog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ int	close_win(t_all *all)
 
 int	key_press(int keycode, t_all *all)
 {
-	if (keycode == 65307)
-        exit(1);
+	if (keycode == ESC_KEY)
+        close_win(all);
     else if (keycode == W_KEY)
         all->keys[0] = 0;
     else if (keycode == S_KEY)
