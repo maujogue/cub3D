@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 12:06:42 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 15:32:47 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/26 16:55:40 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ void	rotate_left_right(t_all *all)
 	if (all->keys[4] == 0)
 	{
 		all->ray.angle -= 0.05;
-		if (all->ray.angle < 0)
-			all->ray.angle = 2 * PI;
 		double oldDirX = all->ray.dir.x;
 		all->ray.dir.x = all->ray.dir.x * cos(all->ray.rotSpeed) - all->ray.dir.y * sin(all->ray.rotSpeed);
 		all->ray.dir.y = oldDirX * sin(all->ray.rotSpeed) + all->ray.dir.y * cos(all->ray.rotSpeed);
@@ -79,8 +77,6 @@ void	rotate_left_right(t_all *all)
 	if (all->keys[5] == 0)
 	{
 		all->ray.angle += 0.05;
-		if (all->ray.angle > 2 * PI)
-			all->ray.angle = 0;
 		double oldDirX = all->ray.dir.x;
 		all->ray.dir.x = all->ray.dir.x * cos(-all->ray.rotSpeed) - all->ray.dir.y * sin(-all->ray.rotSpeed);
 		all->ray.dir.y = oldDirX * sin(-all->ray.rotSpeed) + all->ray.dir.y * cos(-all->ray.rotSpeed);
