@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 12:06:42 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 16:55:40 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:11:05 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,27 +65,13 @@ void	move_left_right(t_all *all, double move_speed)
 void	rotate_left_right(t_all *all)
 {
 	if (all->keys[4] == 0)
-	{
 		all->ray.angle -= 0.05;
-		double oldDirX = all->ray.dir.x;
-		all->ray.dir.x = all->ray.dir.x * cos(all->ray.rotSpeed) - all->ray.dir.y * sin(all->ray.rotSpeed);
-		all->ray.dir.y = oldDirX * sin(all->ray.rotSpeed) + all->ray.dir.y * cos(all->ray.rotSpeed);
-		double oldPlaneX = all->ray.plane.x;
-		all->ray.plane.x = all->ray.plane.x * cos(all->ray.rotSpeed) - all->ray.plane.y * sin(all->ray.rotSpeed);
-		all->ray.plane.y = oldPlaneX * sin(all->ray.rotSpeed) + all->ray.plane.y * cos(all->ray.rotSpeed);
-	}
 	if (all->keys[5] == 0)
-	{
 		all->ray.angle += 0.05;
-		double oldDirX = all->ray.dir.x;
-		all->ray.dir.x = all->ray.dir.x * cos(-all->ray.rotSpeed) - all->ray.dir.y * sin(-all->ray.rotSpeed);
-		all->ray.dir.y = oldDirX * sin(-all->ray.rotSpeed) + all->ray.dir.y * cos(-all->ray.rotSpeed);
-		double oldPlaneX = all->ray.plane.x;
-		all->ray.plane.x = all->ray.plane.x * cos(-all->ray.rotSpeed) - all->ray.plane.y * sin(-all->ray.rotSpeed);
-		all->ray.plane.y = oldPlaneX * sin(-all->ray.rotSpeed) + all->ray.plane.y * cos(-all->ray.rotSpeed);
-	}
 	all->ray.delta_pos.x = cos(all->ray.angle);
 	all->ray.delta_pos.y = sin(all->ray.angle);
+	all->ray.plane.x = sin(all->ray.angle + PI / 2);
+	all->ray.plane.y = cos(all->ray.angle + PI / 2);
 }
 
 

@@ -3,9 +3,9 @@
 void	init_raycasting(int i, t_all *all)
 {
 	all->ray.cameraX = 2 * i / (double)1920 - 1;
-	all->ray.raydir.x = all->ray.dir.x
+	all->ray.raydir.x = all->ray.delta_pos.y
 		+ all->ray.plane.x * all->ray.cameraX;
-	all->ray.raydir.y = all->ray.dir.y
+	all->ray.raydir.y = all->ray.delta_pos.x
 		+ all->ray.plane.y * all->ray.cameraX;
 	all->ray.mapX = (int)all->ray.pos.x;
 	all->ray.mapY = (int)all->ray.pos.y;
