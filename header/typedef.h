@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   typedef.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathisaujogue <mathisaujogue@student.42    +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/24 14:16:53 by mathisaujog      ###   ########.fr       */
+/*   Updated: 2023/06/26 13:50:07 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,29 @@ typedef struct s_ray
 {
 	t_vector	p_pos;
 	t_vector	delta_pos;
-	double		angle;	
+	double		angle;
+	
+	t_vector pos;              //position du perso
+	t_vector dir;             //la direction
+	t_vector plane;             //plan de la cam perpendiculaire a la direction
+	double	time;
+	double	oldtime;
+	double	cameraX;            //0 pour le rayon en face, -1 a gauche et 1 a droite
+	t_vector raydir;			//l'angle du rayon		
+	t_vector sidedist;				//distance des rayons comme deltadist mais arrondis selon la position double
+	t_vector deltadist;          //l'angle des rayons
+	int		mapX;
+	int		mapY;
+	double perpWallDist;
+	int		stepX;            //rayon positif en x ou negatif -1 ou +1
+	int		stepY;
+	int		inWall;            //1 si on touche un mur
+	int		sideWall;           //1 si c'est un mur devant ou derriere et 0 si c'est sur les cote
+	int		drawStart;
+	int		drawEnd;
+	int		lineHeight;
+	double rotSpeed;
+	double moveSpeed;
 }				t_ray;
 
 

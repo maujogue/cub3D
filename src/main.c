@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/23 10:49:47 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/26 14:08:33 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		init_cub(&all, argv[1]);
-    	init_ray(&all);
-    	ft_mlx(&all);
+		init_ray(&all);
+		ft_mlx(&all);
 		free_exit(&all, 0, "");
 	}
 	else

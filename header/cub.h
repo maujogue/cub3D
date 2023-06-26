@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathisaujogue <mathisaujogue@student.42    +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/24 15:23:19 by mathisaujog      ###   ########.fr       */
+/*   Updated: 2023/06/26 14:20:42 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw_minimap(t_all *all);
 void	set_player_position(t_all *all);
 void	cast_rays(t_all *all);
+int	raycasting(t_all *all);
 //-----------------------KEYPRESS--------------//
 int		close_win(t_all *all);
 int		ft_mouse( int x, int y, t_all *all);
@@ -69,6 +70,6 @@ int		key_press(int keycode, t_all *all);
 
 //-----------------------RAYCASTING--------------//
 
-
+void	find_pos_playeur(t_all *all);
 
 #endif
