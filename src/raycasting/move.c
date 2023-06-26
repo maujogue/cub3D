@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 12:06:42 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 12:27:52 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:56:19 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ void	move_up_down(t_all *all, double move_speed)
 	y = floor(all->ray.p_pos.y - sin(all->ray.angle) / move_speed);
 	if (all->keys[1] == 0 && all->pars.map[y][x] != '1')
 	{
-
 		all->ray.p_pos.x -= cos(all->ray.angle) / move_speed;
 		all->ray.p_pos.y -= sin(all->ray.angle) / move_speed;
 	}

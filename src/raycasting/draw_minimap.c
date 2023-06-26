@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:42:27 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/23 16:11:44 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/26 12:59:58 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,8 @@ void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 	if (x > 1920 || y > 1080)
 		return ;
 	dst = data->addr + (y * data->line_length + x * (data->bits_per_pixel / 8));
-	*(unsigned int*)dst = color;
+	*(unsigned int *) dst = color;
 }
-
 
 void	draw_square(t_all *all, t_vector start, int len, int color)
 {
@@ -44,10 +43,10 @@ void	draw_square(t_all *all, t_vector start, int len, int color)
 
 void	draw_minimap(t_all *all)
 {
-	int	x;
-	int	y;
-	int	len;
-	t_vector start;
+	int			x;
+	int			y;
+	int			len;
+	t_vector	start;
 
 	len = SIZE_MINIMAP;
 	y = 0;

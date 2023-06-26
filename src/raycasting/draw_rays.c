@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   draw_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathisaujogue <mathisaujogue@student.42    +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 15:51:13 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/24 15:45:11 by mathisaujog      ###   ########.fr       */
+/*   Updated: 2023/06/26 12:59:07 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub.h"
+
+int	has_touched_wall(t_all *all, t_vector v1)
+{
+	int	x;
+	int	y;
+
+	x = floor(v1.x / SIZE_MINIMAP);
+	y = floor(v1.y / SIZE_MINIMAP);
+	if (all->pars.map[y][x] == '1')
+		return (0);
+	return (1);
+}
 
 void	draw_angle(t_all *all, t_vector v1, t_vector v2, t_vector sign_diff)
 {
@@ -23,7 +35,7 @@ void	draw_angle(t_all *all, t_vector v1, t_vector v2, t_vector sign_diff)
 	dx = abs((int)v2.x - (int)v1.x);
 	dy = abs((int)v2.y - (int)v1.y);
 	err = (dx - dy);
-	while (i < 100)
+	while (has_touched_wall(all, v1) == 1)
 	{
 		my_mlx_pixel_put(&(all->data), v1.x, v1.y, 0x000000FF);
 		if (2 * err > -dy)
