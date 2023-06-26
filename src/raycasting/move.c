@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 12:06:42 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 17:11:05 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:24:39 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	move_up_down(t_all *all, double move_speed)
 	int	x;
 	int	y;
 
-	x = floor(all->ray.p_pos.x + cos(all->ray.angle) / move_speed);
-	y = floor(all->ray.p_pos.y + sin(all->ray.angle) / move_speed);
+	x = floor(all->ray.p_pos.x + (cos(all->ray.angle) / move_speed) * 4);
+	y = floor(all->ray.p_pos.y + (sin(all->ray.angle) / move_speed) * 4);
 	if (all->keys[0] == 0 && all->pars.map[y][x] != '1')
 	{
 		all->ray.p_pos.x += cos(all->ray.angle) / move_speed;
@@ -26,8 +26,8 @@ void	move_up_down(t_all *all, double move_speed)
 		all->ray.pos.y = all->ray.p_pos.x;
 		all->ray.pos.x = all->ray.p_pos.y;
 	}
-	x = floor(all->ray.p_pos.x - cos(all->ray.angle) / move_speed);
-	y = floor(all->ray.p_pos.y - sin(all->ray.angle) / move_speed);
+	x = floor(all->ray.p_pos.x - (cos(all->ray.angle) / move_speed) * 4);
+	y = floor(all->ray.p_pos.y - (sin(all->ray.angle) / move_speed) * 4);
 	if (all->keys[1] == 0 && all->pars.map[y][x] != '1')
 	{
 		all->ray.p_pos.x -= cos(all->ray.angle) / move_speed;
@@ -42,8 +42,10 @@ void	move_left_right(t_all *all, double move_speed)
 	int	x;
 	int	y;
 
-	x = floor(all->ray.p_pos.x + cos(all->ray.angle - PI / 2) / move_speed);
-	y = floor(all->ray.p_pos.y + sin(all->ray.angle - PI / 2) / move_speed);
+	x = floor(all->ray.p_pos.x
+			+ (cos(all->ray.angle - PI / 2) / move_speed) * 4);
+	y = floor(all->ray.p_pos.y
+			+ (sin(all->ray.angle - PI / 2) / move_speed) * 4);
 	if (all->keys[2] == 0 && all->pars.map[y][x] != '1')
 	{
 		all->ray.p_pos.y += sin(all->ray.angle - PI / 2) / move_speed;
@@ -51,8 +53,10 @@ void	move_left_right(t_all *all, double move_speed)
 		all->ray.pos.y = all->ray.p_pos.x;
 		all->ray.pos.x = all->ray.p_pos.y;
 	}
-	x = floor(all->ray.p_pos.x + cos(all->ray.angle + PI / 2) / move_speed);
-	y = floor(all->ray.p_pos.y + sin(all->ray.angle + PI / 2) / move_speed);
+	x = floor(all->ray.p_pos.x
+			+ (cos(all->ray.angle + PI / 2) / move_speed) * 4);
+	y = floor(all->ray.p_pos.y
+			+ (sin(all->ray.angle + PI / 2) / move_speed) * 4);
 	if (all->keys[3] == 0 && all->pars.map[y][x] != '1')
 	{
 		all->ray.p_pos.y += sin(all->ray.angle + PI / 2) / move_speed;
@@ -73,7 +77,6 @@ void	rotate_left_right(t_all *all)
 	all->ray.plane.x = sin(all->ray.angle + PI / 2);
 	all->ray.plane.y = cos(all->ray.angle + PI / 2);
 }
-
 
 int	move_player(t_all *all)
 {

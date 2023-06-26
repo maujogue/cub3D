@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 15:51:13 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 14:59:06 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:25:26 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ int	has_touched_wall(t_all *all, t_vector v1)
 
 	x = floor(v1.x / SIZE_MINIMAP);
 	y = floor(v1.y / SIZE_MINIMAP);
-	if (all->pars.map[y][x] == '1' || x == 0 || y == 0 || x == WIDTH - 2 || y == HEIGHT - 2)
+	if (all->pars.map[y][x] == '1'
+		|| x == 0 || y == 0 || x == WIDTH - 2 || y == HEIGHT - 2)
 		return (0);
 	return (1);
 }

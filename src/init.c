@@ -6,13 +6,13 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 15:52:08 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:17:25 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub.h"
 
-void    init_cub(t_all *all, char *map)
+void	init_cub(t_all *all, char *map)
 {
 	all->mlx = NULL;
 	all->mlx_win = NULL;
@@ -31,7 +31,7 @@ void    init_cub(t_all *all, char *map)
 	if (!all->data.img)
 		free_exit(all, 1, "Malloc Error\n");
 	all->data.addr = mlx_get_data_addr(all->data.img,
-		&all->data.bits_per_pixel, &all->data.line_length, &all->data.endian);
+			&all->data.bits_per_pixel, &all->data.line_length, &all->data.endian);
 	if (!all->data.addr)
 		free_exit(all, 1, "Malloc Error\n");
 
@@ -67,10 +67,8 @@ void	init_ray(t_all *all)
 	all->keys[5] = 1;
 	init_angle(all);
 
-	all->ray.dir.x = sin(all->ray.angle);
-	all->ray.dir.y = cos(all->ray.angle);
-	all->ray.plane.x = 0;
-	all->ray.plane.y = 0.66;
+	all->ray.plane.x = sin(all->ray.angle + PI / 2);
+	all->ray.plane.y = cos(all->ray.angle + PI / 2);
 	all->ray.time = 0;
 	all->ray.oldtime = 0;
 	all->ray.cameraX = 0;

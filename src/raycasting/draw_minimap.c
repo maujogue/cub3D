@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:42:27 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/26 14:08:48 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/26 17:18:39 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ void	draw_minimap(t_all *all)
 		}
 		y++;
 	}
-	start.x = all->ray.p_pos.x * len;
-	start.y = all->ray.p_pos.y * len;
+	start.x = all->ray.p_pos.x * len - 5;
+	start.y = all->ray.p_pos.y * len - 5;
 	draw_square(all, start, 10, 0x000000FF);
 }
 

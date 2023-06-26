@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/26 17:24:14 by maujogue          #+#    #+#             */
+/*   Updated: 2023/06/26 17:24:29 by maujogue         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../header/cub.h"
 
 void	init_raycasting(int i, t_all *all)
@@ -81,16 +93,13 @@ void	draw_wall(t_all *all, int i)
 	if (all->ray.drawEnd >= 1080)
 		all->ray.drawEnd = 1080;
 	d = 0;
-	/////////////////////////////////////////plafond
 	while (all->ray.drawStart > d)
 		my_mlx_pixel_put(&(all->data), i, d++, 0x000000FF);
-	/////////////////////////////////////////////mur
 	color = 0x80808080;
 	if (all->ray.sideWall == 1)
 		color = 0x00A9A9A9;
 	while (all->ray.drawStart < all->ray.drawEnd)
 		my_mlx_pixel_put(&(all->data), i, all->ray.drawStart++, color);
-	////////////////////////////////////////////////////sol
 	d = all->ray.drawEnd;
 	while (d > 0 && d < 1080)
 		my_mlx_pixel_put(&(all->data), i, d++, 0x90EE90);
@@ -115,11 +124,8 @@ int	raycasting(t_all *all)
 						+ (1 - all->ray.stepY) / 2) / all->ray.raydir.y);
 		all->ray.lineHeight = (int)(1080 / all->ray.perpWallDist);
 		draw_wall(all, i);
-		// ft_draw_line(all);
 		i++;
 	}
 	mlx_put_image_to_window(all->mlx, all->mlx_win, all->data.img, 0, 0);
-	// draw_map(all);
-	// draw_playeur(all, all->ray.pos.x, all->ray.pos.y);
 	return (0);
 }
