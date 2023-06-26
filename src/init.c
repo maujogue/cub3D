@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathisaujogue <mathisaujogue@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/23 16:30:39 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/24 15:50:21 by mathisaujog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,23 @@ void    init_cub(t_all *all, char *map)
 
 }
 
+void	init_angle(t_all *all)
+{
+	int	x;
+	int	y;
+
+	x = all->ray.p_pos.x;
+	y = all->ray.p_pos.y;
+	if (all->pars.map[y][x] == 'N')
+		all->ray.angle = -PI/2;
+	if (all->pars.map[y][x] == 'S')
+		all->ray.angle = PI/2;
+	if (all->pars.map[y][x] == 'E')
+		all->ray.angle = 0;
+	if (all->pars.map[y][x] == 'W')
+		all->ray.angle = 1;
+}
+
 void	init_ray(t_all *all)
 {
 	set_player_position(all);
@@ -46,5 +63,6 @@ void	init_ray(t_all *all)
 	all->keys[3] = 1;
 	all->keys[4] = 1;
 	all->keys[5] = 1;
-	all->ray.angle = 0;
+	init_angle(all);
 }
+
