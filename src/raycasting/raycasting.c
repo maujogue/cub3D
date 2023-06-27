@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/26 17:24:14 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 15:11:14 by maujogue         ###   ########.fr       */
+/*   Created: 2023/06/27 13:04:43 by avaganay          #+#    #+#             */
+/*   Updated: 2023/06/27 16:13:11 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,8 @@ void	draw_wall(t_all *all, int i)
 	if (all->ray.drawEnd >= 1080)
 		all->ray.drawEnd = 1080;
 	d = 0;
+	all->ray.drawStartTmp = all->ray.drawStart;
+	/////////////////////////////////////////plafond
 	while (all->ray.drawStart > d)
 		my_mlx_pixel_put(&(all->data), i, d++, all->pars.ceiling_color);
 	color = 0x80808080;
@@ -122,6 +124,8 @@ int	raycasting(t_all *all)
 						+ (1 - all->ray.stepY) / 2) / all->ray.raydir.y);
 		all->ray.lineHeight = (int)(1080 / all->ray.perpWallDist);
 		draw_wall(all, i);
+		texture(all, i);
+		// ft_draw_line(all);
 		i++;
 	}
 	mlx_put_image_to_window(all->mlx, all->mlx_win, all->data.img, 0, 0);

@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 14:39:07 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:12:37 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,9 +50,11 @@ typedef struct	s_data
 {
 	void	*img;
 	char	*addr;
+	int		*addr2;
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		pix_height;
 }				t_data;
 
 typedef struct pars
@@ -93,6 +95,16 @@ typedef struct s_ray
 	int		lineHeight;
 	double rotSpeed;
 	double moveSpeed;
+	// uint32_t buffer[1080][1920];
+	// t_vector texture[8];
+	int		texNum;
+	double	wallX;       //point d'impacte avec le mur
+	int		texX;         //coordonne x de la texture
+	double	texStep;
+	double	texPos;
+	int		texY;
+	t_data	texture[4];
+	int		drawStartTmp;
 }				t_ray;
 
 

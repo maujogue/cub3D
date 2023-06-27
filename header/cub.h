@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 15:26:16 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:12:31 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,5 +72,7 @@ void	rotate_left_right(t_all *all);
 //-----------------------RAYCASTING--------------//
 
 void	find_pos_playeur(t_all *all);
+// void	resize(int** array, int newSize);
+void	texture(t_all *all, int x);
 
 #endif
