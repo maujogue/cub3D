@@ -54,6 +54,9 @@ all: 					clear lib mkbuild minilibx $(HEADER_DIR) $(NAME)
 go:						all
 						./${NAME} map.cub
 
+valgrind:				all
+						valgrind --leak-check=full --show-leak-kinds=all ./${NAME} map.cub
+
 mkbuild:	
 						@mkdir -p ${BUILD_DIR}
 

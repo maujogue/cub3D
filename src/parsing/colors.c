@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:38:14 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 09:58:56 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 10:17:26 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,7 @@ int	parse_color(t_all *all, t_list *lst, char *key)
 	}
 	color = create_trgb(0, ft_atoi(temp_split[0]),
 			ft_atoi(temp_split[1]), ft_atoi(temp_split[2]));
+	free_array(temp_split);
+	free(temp_color);
 	return (color);
 }

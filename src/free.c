@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:18:10 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 09:56:09 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 10:28:51 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ void	free_pars(t_all *all)
 
 void	free_exit(t_all *all, int exit_code, char *error_message)
 {
+	if (all->data.img)
+		mlx_destroy_image(all->mlx, all->data.img);
 	if (all->mlx_win)
 	{
 		mlx_clear_window(all->mlx, all->mlx_win);
@@ -57,7 +59,7 @@ void	free_exit(t_all *all, int exit_code, char *error_message)
 	}
 	if (all->mlx)
 	{
-		// mlx_destroy_display(all->mlx);
+		mlx_destroy_display(all->mlx);
 		free(all->mlx);
 	}
 	free_pars(all);
