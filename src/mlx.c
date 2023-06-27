@@ -6,13 +6,13 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:33:07 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/26 14:28:27 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 09:55:30 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub.h"
 
-void    ft_mlx(t_all *all)
+void	ft_mlx(t_all *all)
 {
 	mlx_hook(all->mlx_win, 17, 1L << 17, close_win, all);
 	mlx_hook(all->mlx_win, 2, (1L << 0), key_press, all);

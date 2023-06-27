@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:18:10 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 14:08:30 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 09:56:09 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	free_pars(t_all *all)
 	free(all->pars.west_wall);
 }
 
-void    free_exit(t_all *all, int exit_code, char *error_message)
+void	free_exit(t_all *all, int exit_code, char *error_message)
 {
 	if (all->mlx_win)
 	{

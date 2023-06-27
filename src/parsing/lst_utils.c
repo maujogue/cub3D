@@ -6,17 +6,17 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 16:23:35 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 14:09:07 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 09:59:14 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub.h"
 
-char    *get_lst_content(t_list *lst, char *key)
+char	*get_lst_content(t_list *lst, char *key)
 {
-	char    *content;
-	char    *res;
-	char    *temp;
+	char	*content;
+	char	*res;
+	char	*temp;
 
 	res = NULL;
 	while (lst)
@@ -31,19 +31,17 @@ char    *get_lst_content(t_list *lst, char *key)
 				return (NULL);
 			if (!res)
 				return (NULL);
-			
 		}
 		lst = lst->next;
 	}
 	return (res);
-	
 }
 
-t_list  *file_to_lst(t_list *lst, int fd)
+t_list	*file_to_lst(t_list *lst, int fd)
 {
-	t_list  *node;
-	char    *line;
-	
+	t_list	*node;
+	char	*line;
+
 	while (1)
 	{
 		line = get_next_line(fd);
@@ -80,7 +78,7 @@ char	*ft_strtrim_right(char const *s1, char const *set)
 
 char	**lst_to_tab(t_list	*lst)
 {
-	char    **tab;
+	char	**tab;
 	int		i;
 
 	i = 0;
@@ -91,7 +89,7 @@ char	**lst_to_tab(t_list	*lst)
 	{
 		if (ft_strlen(lst->content) < 3)
 			return (NULL);
-		tab[i]= ft_strtrim_right(lst->content, "\n ");
+		tab[i] = ft_strtrim_right(lst->content, "\n ");
 		if (!tab[i])
 			return (free_array(tab), NULL);
 		lst = lst->next;

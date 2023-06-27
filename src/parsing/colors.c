@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:38:14 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 14:09:05 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 09:58:56 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ int	get_b(int trgb)
 	return (trgb & 0xFF);
 }
 
-int parse_color(t_all *all, t_list *lst, char *key)
+int	parse_color(t_all *all, t_list *lst, char *key)
 {
-	int     color;
-	int     nbr;
-	char    *temp_color;
-	char    **temp_split;
-	int     i;
+	int		color;
+	int		nbr;
+	char	*temp_color;
+	char	**temp_split;
+	int		i;
 
 	i = 0;
 	temp_color = get_lst_content(lst, key);
@@ -54,6 +54,7 @@ int parse_color(t_all *all, t_list *lst, char *key)
 			return (-2);
 		i++;
 	}
-	color = create_trgb(0, ft_atoi(temp_split[0]), ft_atoi(temp_split[1]), ft_atoi(temp_split[2]));
+	color = create_trgb(0, ft_atoi(temp_split[0]),
+			ft_atoi(temp_split[1]), ft_atoi(temp_split[2]));
 	return (color);
 }
