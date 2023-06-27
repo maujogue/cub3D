@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:25:32 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 15:28:44 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:05:50 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,8 @@ int	ft_mouse( int x, int y, t_all *all)
 		rotate_left_right(all);
 		all->keys[4] = 1;
 	}
-	if (x > WIDTH || x < 0)
-		x = WIDTH / 2;
+	x = WIDTH / 2;
+	mlx_mouse_move(all->mlx, all->mlx_win, WIDTH / 2, HEIGHT / 2);
 	all->mouse_pos = x;
 	return (0);
 }

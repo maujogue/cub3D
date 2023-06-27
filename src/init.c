@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 09:57:04 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 16:05:39 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	init_angle(t_all *all)
 
 void	init_ray(t_all *all)
 {
+	mlx_mouse_hide(all->mlx, all->mlx_win);
 	set_player_position(all);
 	all->keys[0] = 1;
 	all->keys[1] = 1;
