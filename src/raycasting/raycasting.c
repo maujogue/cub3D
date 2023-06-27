@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   raycasting.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/06/27 13:04:43 by avaganay          #+#    #+#             */
+/*   Updated: 2023/06/27 15:38:27 by avaganay         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../../header/cub.h"
 
 void	init_raycasting(int i, t_all *all)
@@ -81,6 +93,7 @@ void	draw_wall(t_all *all, int i)
 	if (all->ray.drawEnd >= 1080)
 		all->ray.drawEnd = 1080;
 	d = 0;
+	all->ray.drawStartTmp = all->ray.drawStart;
 	/////////////////////////////////////////plafond
 	while (all->ray.drawStart > d)
 		my_mlx_pixel_put(&(all->data), i, d++, 0x000000FF);
@@ -115,6 +128,7 @@ int	raycasting(t_all *all)
 						+ (1 - all->ray.stepY) / 2) / all->ray.raydir.y);
 		all->ray.lineHeight = (int)(1080 / all->ray.perpWallDist);
 		draw_wall(all, i);
+		texture(all, i);
 		// ft_draw_line(all);
 		i++;
 	}
