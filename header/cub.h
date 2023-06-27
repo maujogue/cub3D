@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 14:20:42 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:26:16 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,16 +58,17 @@ int     refresh(t_all *all);
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 void	draw_minimap(t_all *all);
+void	draw_triangle(t_all *all, double angle, double pos, int radius);
 void	set_player_position(t_all *all);
 void	cast_rays(t_all *all);
-int	raycasting(t_all *all);
+int	    raycasting(t_all *all);
 //-----------------------KEYPRESS--------------//
 int		close_win(t_all *all);
 int		ft_mouse( int x, int y, t_all *all);
 int		move_player(t_all *all);
 int		key_release(int keycode, t_all *all);
 int		key_press(int keycode, t_all *all);
-
+void	rotate_left_right(t_all *all);
 //-----------------------RAYCASTING--------------//
 
 void	find_pos_playeur(t_all *all);

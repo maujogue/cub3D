@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:25:32 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 10:10:33 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:28:44 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,10 +61,18 @@ int	key_release(int keycode, t_all *all)
 int	ft_mouse( int x, int y, t_all *all)
 {
 	(void)y;
-	// if (x > all->mouse_pos)
-	// 	all->keys[4] = 1;
-	// else
-	// 	all->keys[5] = 1;
+	if (x > all->mouse_pos)
+	{
+		all->keys[5] = 0;
+		rotate_left_right(all);
+		all->keys[5] = 1;
+	}
+	else if (x < all->mouse_pos)
+	{
+		all->keys[4] = 0;
+		rotate_left_right(all);
+		all->keys[4] = 1;
+	}
 	if (x > WIDTH || x < 0)
 		x = WIDTH / 2;
 	all->mouse_pos = x;

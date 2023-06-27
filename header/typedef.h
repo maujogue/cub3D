@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 13:50:07 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:39:07 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 # define TYPEDEF_H
 
 # define SIZE_MINIMAP 25
+# define RADIUS 5
 # define HEIGHT 1080
 # define WIDTH 1920
-# define PI 3.1415926525
+# define PI 3.141592653589793
 
 # ifdef __APPLE__
 #  define W_KEY 13

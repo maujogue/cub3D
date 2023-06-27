@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:50 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 09:56:41 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 14:17:37 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ void	set_player_position(t_all *all)
 		{
 			if (ft_strchr("NSEW", all->pars.map[y][x]))
 			{
-				all->ray.p_pos.x = x;
-				all->ray.p_pos.y = y;
-				all->ray.pos.y = (double)x;
-				all->ray.pos.x = (double)y;
+				all->ray.p_pos.x = x + 0.5;
+				all->ray.p_pos.y = y + 0.5;
+				all->ray.pos.y = (double)x + 0.5;
+				all->ray.pos.x = (double)y + 0.5;
 				return ;
 			}
 			x++;

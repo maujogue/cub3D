@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:24:14 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 17:24:29 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/27 15:11:14 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,9 +75,7 @@ void	check_hit_wall(t_all *all)
 			all->ray.sideWall = 1;
 		}
 		if (all->pars.map[all->ray.mapX][all->ray.mapY] == '1')
-		{
 			all->ray.inWall = 1;
-		}
 	}
 }
 
@@ -94,7 +92,7 @@ void	draw_wall(t_all *all, int i)
 		all->ray.drawEnd = 1080;
 	d = 0;
 	while (all->ray.drawStart > d)
-		my_mlx_pixel_put(&(all->data), i, d++, 0x000000FF);
+		my_mlx_pixel_put(&(all->data), i, d++, all->pars.ceiling_color);
 	color = 0x80808080;
 	if (all->ray.sideWall == 1)
 		color = 0x00A9A9A9;
@@ -102,7 +100,7 @@ void	draw_wall(t_all *all, int i)
 		my_mlx_pixel_put(&(all->data), i, all->ray.drawStart++, color);
 	d = all->ray.drawEnd;
 	while (d > 0 && d < 1080)
-		my_mlx_pixel_put(&(all->data), i, d++, 0x90EE90);
+		my_mlx_pixel_put(&(all->data), i, d++, all->pars.floor_color);
 }
 
 int	raycasting(t_all *all)
