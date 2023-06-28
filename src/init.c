@@ -6,11 +6,47 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/28 14:02:20 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:27:29 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub.h"
+
+void	init_xpm(t_all *all)
+{
+	///////////////////////////////////////////////////////////////////SUD
+	all->ray.texture[0].img = mlx_xpm_file_to_image(all->mlx, \
+			"./assets/xpm/SO.xpm", &(all->ray.texture[0].pix_wight),
+			&(all->ray.texture[0].pix_height));
+	all->ray.texture[0].addr2 = (int *)mlx_get_data_addr(all->ray.texture[0].img,
+			&all->ray.texture[0].bits_per_pixel,
+			&all->ray.texture[0].line_length, &all->ray.texture[0].endian);
+	// printf("%d\n", all->ray.texture[0].pix_wight);
+	// printf("%d\n", all->ray.texture[0].pix_height);
+	printf("%d\n", all->ray.texture[0].line_length);
+	///////////////////////////////////////////////////////////////////NORD
+	all->ray.texture[1].img = mlx_xpm_file_to_image(all->mlx, \
+			"./assets/xpm/NO.xpm", &(all->ray.texture[1].pix_wight),
+			&(all->ray.texture[1].pix_height));
+	all->ray.texture[1].addr2 = (int *)mlx_get_data_addr(all->ray.texture[1].img,
+			&all->ray.texture[1].bits_per_pixel,
+			&all->ray.texture[1].line_length, &all->ray.texture[1].endian);
+	printf("%d\n", all->ray.texture[1].line_length);
+	///////////////////////////////////////////////////////////////////EST
+	all->ray.texture[2].img = mlx_xpm_file_to_image(all->mlx, \
+			"./assets/xpm/EA.xpm", &(all->ray.texture[2].pix_wight),
+			&(all->ray.texture[2].pix_height));
+	all->ray.texture[2].addr2 = (int *)mlx_get_data_addr(all->ray.texture[2].img,
+			&all->ray.texture[2].bits_per_pixel,
+			&all->ray.texture[2].line_length, &all->ray.texture[2].endian);
+	///////////////////////////////////////////////////////////////////OUEST
+	all->ray.texture[3].img = mlx_xpm_file_to_image(all->mlx, \
+			"./assets/xpm/WE.xpm", &(all->ray.texture[3].pix_wight),
+			&(all->ray.texture[3].pix_height));
+	all->ray.texture[3].addr2 = (int *)mlx_get_data_addr(all->ray.texture[3].img,
+			&all->ray.texture[3].bits_per_pixel,
+			&all->ray.texture[3].line_length, &all->ray.texture[3].endian);
+}
 
 void	init_cub(t_all *all, char *map)
 {
@@ -36,26 +72,7 @@ void	init_cub(t_all *all, char *map)
 		&all->data.bits_per_pixel, &all->data.line_length, &all->data.endian);
 	if (!all->data.addr)
 		free_exit(all, 1, "Malloc Error\n");
-	///////////////////////////////////////////////////////////////////SUD
-	all->ray.texture[0].img = mlx_xpm_file_to_image(all->mlx, \
-			"./assets/xpm/wall1.xpm", &(all->ray.texture[0].pix_height), &(all->ray.texture[0].pix_height));
-	all->ray.texture[0].addr2 = (int *)mlx_get_data_addr(all->ray.texture[0].img,
-			&all->ray.texture[0].bits_per_pixel, &all->ray.texture[0].line_length, &all->ray.texture[0].endian);
-	///////////////////////////////////////////////////////////////////NORD
-	all->ray.texture[1].img = mlx_xpm_file_to_image(all->mlx, \
-			"./assets/xpm/floor2.xpm", &(all->ray.texture[1].pix_height), &(all->ray.texture[1].pix_height));
-	all->ray.texture[1].addr2 = (int *)mlx_get_data_addr(all->ray.texture[1].img,
-			&all->ray.texture[1].bits_per_pixel, &all->ray.texture[1].line_length, &all->ray.texture[1].endian);
-	///////////////////////////////////////////////////////////////////EST
-	all->ray.texture[2].img = mlx_xpm_file_to_image(all->mlx, \
-			"./assets/xpm/wall2.xpm", &(all->ray.texture[2].pix_height), &(all->ray.texture[2].pix_height));
-	all->ray.texture[2].addr2 = (int *)mlx_get_data_addr(all->ray.texture[2].img,
-			&all->ray.texture[2].bits_per_pixel, &all->ray.texture[2].line_length, &all->ray.texture[2].endian);
-	///////////////////////////////////////////////////////////////////OUEST
-	all->ray.texture[3].img = mlx_xpm_file_to_image(all->mlx, \
-			"./assets/xpm/wall.xpm", &(all->ray.texture[3].pix_height), &(all->ray.texture[3].pix_height));
-	all->ray.texture[3].addr2 = (int *)mlx_get_data_addr(all->ray.texture[3].img,
-			&all->ray.texture[3].bits_per_pixel, &all->ray.texture[3].line_length, &all->ray.texture[3].endian);
+	init_xpm(all);
 }
 
 void	init_angle(t_all *all)

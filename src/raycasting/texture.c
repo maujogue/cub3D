@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:22:40 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/28 14:06:20 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:30:50 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	texture(t_all *all, int x)
 			all->ray.texPos += all->ray.texStep;
 			// printf("NUM:%d\n", all->ray.texNum);
 			// printf("%d\n", all->ray.texture[all->ray.texNum].line_length);
-			all->data.addr2[y * all->data.line_length / 4 + x] = all->ray.texture[all->ray.texNum].addr2[all->ray.texY * 8 / 4 * all->ray.texX];
+			all->data.addr2[y * all->data.line_length / 4 + x] = all->ray.texture[all->ray.texNum].addr2[all->ray.texY * all->ray.texture[all->ray.texNum].line_length / 4 * all->ray.texX];
 			//all->ray.texture[all->ray.texNum].line_length
 		}
 		y++;
