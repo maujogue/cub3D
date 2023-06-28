@@ -6,11 +6,23 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:18:10 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/28 13:24:05 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:17:23 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/cub.h"
+
+void	free_xpm(t_all *all)
+{
+	if (all->ray.texture[0].img)
+		mlx_destroy_image(all->mlx, all->ray.texture[0].img);
+	if (all->ray.texture[1].img)
+		mlx_destroy_image(all->mlx, all->ray.texture[1].img);
+	if (all->ray.texture[2].img)
+		mlx_destroy_image(all->mlx, all->ray.texture[2].img);
+	if (all->ray.texture[3].img)
+		mlx_destroy_image(all->mlx, all->ray.texture[3].img);
+}
 
 void	free_lst(t_list *lst)
 {
@@ -50,6 +62,7 @@ void	free_pars(t_all *all)
 
 void	free_exit(t_all *all, int exit_code, char *error_message)
 {
+	free_xpm(all);
 	if (all->data.img != NULL)
 		mlx_destroy_image(all->mlx, all->data.img);
 	if (all->mlx_win)

@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 15:51:13 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 15:17:49 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:30:16 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void	draw_line(t_all *all, t_vector start, t_vector direction)
 	draw_angle(all, start, direction, sign_diff);
 }
 
-void	draw_triangle(t_all *all, double angle, double pos, int radius)
+void	draw_player(t_all *all, double angle, double pos, int radius)
 {
 	t_vector	v1;
 	t_vector	v2;

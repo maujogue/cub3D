@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:42:27 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/28 14:07:03 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:31:11 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ void	draw_square(t_all *all, t_vector start, int len, int color)
 
 void	draw_minimap(t_all *all)
 {
+	t_vector	start;
 	int			x;
 	int			y;
- 	t_vector	start;
 
 	y = all->ray.p_pos.y - RADIUS;
 	if (y < 0)
@@ -68,5 +68,4 @@ void	draw_minimap(t_all *all)
 		}
 		y++;
 	}
-	draw_triangle(all, all->ray.angle, SIZE_MINIMAP * RADIUS, 15);
 }
