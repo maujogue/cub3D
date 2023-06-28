@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:22:40 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/27 16:06:46 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/28 11:37:51 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,24 @@ void	texture(t_all *all, int x)
 {
 	int	y;
 
-	(void)x;
-	all->ray.texNum = all->pars.map[all->ray.mapX][all->ray.mapY];
+	// (void)x;
+	if (all->ray.sideWall == 0 && all->ray.raydir.x >= 0)
+		all->ray.texNum = 1;
+	if (all->ray.sideWall == 0 && all->ray.raydir.x < 0)
+		all->ray.texNum = 2;
+	if (all->ray.sideWall == 1 && all->ray.raydir.y >= 0)
+		all->ray.texNum = 3;
+	if (all->ray.sideWall == 1 && all->ray.raydir.y < 0)
+		all->ray.texNum = 4;
+	else 
+		all->ray.texNum = 0;
+	// printf("Side %d\n", all->ray.sideWall);
+	// printf("raydir x %f\n", all->ray.raydir.x);
+	// else if (all->pars.map[all->ray.mapX][all->ray.mapY] == '0')
+	// 	all->ray.texNum = 0;
+	// all->ray.texNum = all->pars.map[all->ray.mapX][all->ray.mapY] - 1;
+	// printf("mapx:%d\n", all->ray.mapX);
+	// printf("NUM:%d\n", all->pars.map[all->ray.mapX][all->ray.mapY]);
 	if (all->ray.sideWall == 0)
 		all->ray.wallX = all->ray.pos.y + all->ray.perpWallDist * all->ray.raydir.y;
 	else
@@ -58,7 +74,10 @@ void	texture(t_all *all, int x)
 		{
 			all->ray.texY = (int)all->ray.texPos & (64 - 1);
 			all->ray.texPos += all->ray.texStep;
-			all->data.addr2[y * all->data.line_length / 4 + x] = all->ray.texture[0].addr2[all->ray.texY * 6 / 4 * all->ray.texX];
+			// printf("NUM:%d\n", all->ray.texNum);
+			// if (all->ray.texNum > 3)
+			// 	all->ray.texNum = rand()%3;
+			all->data.addr2[y * all->data.line_length / 4 + x] = all->ray.texture[all->ray.texNum].addr2[all->ray.texY * 6 / 4 * all->ray.texX];
 		}
 		y++;
 	}
