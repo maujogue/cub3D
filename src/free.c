@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:18:10 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 10:28:51 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:24:05 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	free_pars(t_all *all)
 
 void	free_exit(t_all *all, int exit_code, char *error_message)
 {
-	if (all->data.img)
+	if (all->data.img != NULL)
 		mlx_destroy_image(all->mlx, all->data.img);
 	if (all->mlx_win)
 	{

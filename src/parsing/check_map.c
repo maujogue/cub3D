@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:18:09 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 10:09:32 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:52:53 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,14 @@ int	check_open_map(char **map, int i, int j)
 	if (ft_strchr("0NSEW", map[j][i])
 		&& (i == 0 || j == 0 || i == len_i || j == len_j))
 		return (2);
+	// if (j > 0)
+	// 	printf("->%c %d\n",map[j][i], (int)ft_strlen(map[j - 1]));
+	// if (j < len_j)
+	// 	printf("->%c %d\n",map[j][i], (int)ft_strlen(map[j + 1]));
 	if (ft_strchr("0NSEW", map[j][i])
-	&& ((j < len_j && !ft_strchr("01NSEW", map[j + 1][i]))
+	&& ((j > 0 && (int)ft_strlen(map[j - 1]) - 1 < i)
+	|| (j < len_j && (int)ft_strlen(map[j + 1]) - 1 < i)
+	|| (j < len_j && !ft_strchr("01NSEW", map[j + 1][i]))
 	|| (j > 0 && !ft_strchr("01NSEW", map[j - 1][i]))
 	|| (i < len_i && !ft_strchr("01NSEW", map[j][i + 1]))
 	|| (i > 0 && !ft_strchr("01NSEW", map[j][i - 1]))))

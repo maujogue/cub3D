@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/28 13:09:44 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/28 14:19:02 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	init_cub(t_all *all, char *map)
 {
 	all->mlx = NULL;
 	all->mlx_win = NULL;
-	parsing(all, map);
-	check_map(all);
 	all->data.img = NULL;
 	all->data.addr = NULL;
+	parsing(all, map);
+	check_map(all);
 	all->mlx = mlx_init();
 	if (!all->mlx)
 		free_exit(all, 1, "Malloc Error\n");
@@ -77,6 +77,7 @@ void	init_angle(t_all *all)
 void	init_ray(t_all *all)
 {
 	mlx_mouse_hide(all->mlx, all->mlx_win);
+	all->mouse_pos = WIDTH / 2;
 	set_player_position(all);
 	all->keys[0] = 1;
 	all->keys[1] = 1;
