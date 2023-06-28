@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   typedef.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/28 15:38:48 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/28 15:42:44 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_data
 	int		line_length;
 	int		endian;
 	int		pix_height;
+	int		pix_wight;
 }				t_data;
 
 typedef struct pars
