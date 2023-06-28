@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:22:40 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/28 11:37:51 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/28 13:25:10 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ void	texture(t_all *all, int x)
 
 	// (void)x;
 	if (all->ray.sideWall == 0 && all->ray.raydir.x >= 0)
+		all->ray.texNum = 0;
+	else if (all->ray.sideWall == 0 && all->ray.raydir.x < 0)
 		all->ray.texNum = 1;
-	if (all->ray.sideWall == 0 && all->ray.raydir.x < 0)
+	else if (all->ray.sideWall == 1 && all->ray.raydir.y >= 0)
 		all->ray.texNum = 2;
-	if (all->ray.sideWall == 1 && all->ray.raydir.y >= 0)
+	else if (all->ray.sideWall == 1 && all->ray.raydir.y < 0)
 		all->ray.texNum = 3;
-	if (all->ray.sideWall == 1 && all->ray.raydir.y < 0)
-		all->ray.texNum = 4;
 	else 
 		all->ray.texNum = 0;
 	// printf("Side %d\n", all->ray.sideWall);
