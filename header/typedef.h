@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/28 15:42:44 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/29 10:18:35 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,33 +75,30 @@ typedef struct s_ray
 	double		angle;
 	t_vector	pos;
 	t_vector	dir;
-	t_vector	plane;
+	t_vector	dir_perp;
 	double		time;
-	double		oldtime;
-	double		cameraX;
+	double		camera_orientation;
 	t_vector	raydir;
 	t_vector	sidedist;
 	t_vector	deltadist;
-	int			mapX;
-	int			mapY;
-	double		perpWallDist;
-	int			stepX;
-	int			stepY;
-	int			inWall;
-	int			sideWall;
-	int			drawStart;
-	int			drawEnd;
-	int			lineHeight;
-	double		rotSpeed;
-	double		moveSpeed;
-	int			texNum;
-	double		wallX;
-	int			texX;
-	double		texStep;
-	double		texPos;
-	int			texY;
+	int			map_x;
+	int			map_y;
+	double		cam_wall_dist;
+	int			step_x;
+	int			step_y;
+	int			in_wall;
+	int			is_side_wall;
+	int			draw_start;
+	int			draw_end;
+	int			line_height;
+	int			tex_nb;
+	double		wall_impact;
+	int			tex_x;
+	double		step_pixel;
+	double		tex_pos;
+	int			tex_y;
 	t_data		texture[4];
-	int			drawStartTmp;
+	int			draw_start_tmp;
 }				t_ray;
 
 typedef struct all

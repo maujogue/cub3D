@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/28 15:43:26 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/29 10:11:41 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,15 +89,12 @@ void	init_ray(t_all *all)
 	all->keys[4] = 1;
 	all->keys[5] = 1;
 	init_angle(all);
-	all->ray.plane.x = sin(all->ray.angle + PI / 2);
-	all->ray.plane.y = cos(all->ray.angle + PI / 2);
+	all->ray.dir_perp.x = sin(all->ray.angle + PI / 2);
+	all->ray.dir_perp.y = cos(all->ray.angle + PI / 2);
 	all->ray.time = 0;
-	all->ray.oldtime = 0;
-	all->ray.cameraX = 0;
+	all->ray.camera_orientation = 0;
 	all->ray.raydir.x = 0;
 	all->ray.raydir.y = 0;
-	all->ray.mapX = 0;
-	all->ray.inWall = 0;
-	all->ray.rotSpeed = 0.05;
-	all->ray.moveSpeed = 0.1;
+	all->ray.map_x = 0;
+	all->ray.in_wall = 0;
 }

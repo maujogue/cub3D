@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 12:06:42 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/26 17:24:39 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/29 09:57:14 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	rotate_left_right(t_all *all)
 		all->ray.angle += 0.05;
 	all->ray.delta_pos.x = cos(all->ray.angle);
 	all->ray.delta_pos.y = sin(all->ray.angle);
-	all->ray.plane.x = sin(all->ray.angle + PI / 2);
-	all->ray.plane.y = cos(all->ray.angle + PI / 2);
+	all->ray.dir_perp.x = sin(all->ray.angle + PI / 2);
+	all->ray.dir_perp.y = cos(all->ray.angle + PI / 2);
 }
 
 int	move_player(t_all *all)

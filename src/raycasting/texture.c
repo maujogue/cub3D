@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:22:40 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/28 15:42:26 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/29 10:18:49 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,35 @@
 
 void	choose_texnum(t_all *all)
 {
-	if (all->ray.sideWall == 0 && all->ray.raydir.x >= 0)
-		all->ray.texNum = 0;
-	else if (all->ray.sideWall == 0 && all->ray.raydir.x < 0)
-		all->ray.texNum = 1;
-	else if (all->ray.sideWall == 1 && all->ray.raydir.y >= 0)
-		all->ray.texNum = 2;
-	else if (all->ray.sideWall == 1 && all->ray.raydir.y < 0)
-		all->ray.texNum = 3;
+	if (all->ray.is_side_wall == 0 && all->ray.raydir.x >= 0)
+		all->ray.tex_nb = 0;
+	else if (all->ray.is_side_wall == 0 && all->ray.raydir.x < 0)
+		all->ray.tex_nb = 1;
+	else if (all->ray.is_side_wall == 1 && all->ray.raydir.y >= 0)
+		all->ray.tex_nb = 2;
+	else if (all->ray.is_side_wall == 1 && all->ray.raydir.y < 0)
+		all->ray.tex_nb = 3;
 	else
-		all->ray.texNum = 0;
+		all->ray.tex_nb = 0;
 }
 
 void	init_var_texture(t_all *all)
 {
-	if (all->ray.sideWall == 0)
-		all->ray.wallX = all->ray.pos.y + all->ray.perpWallDist
+	if (all->ray.is_side_wall == 0)
+		all->ray.wall_impact = all->ray.pos.y + all->ray.cam_wall_dist
 			* all->ray.raydir.y;
 	else
-		all->ray.wallX = all->ray.pos.x + all->ray.perpWallDist
+		all->ray.wall_impact = all->ray.pos.x + all->ray.cam_wall_dist
 			* all->ray.raydir.x;
-	all->ray.wallX -= floor((all->ray.wallX));
-	all->ray.texX = (int)(all->ray.wallX * (double)64);
-	if (all->ray.sideWall == 0 && all->ray.raydir.x > 0)
-		all->ray.texX = 64 - all->ray.texX - 1;
-	if (all->ray.sideWall == 1 && all->ray.raydir.y < 0)
-		all->ray.texX = 64 - all->ray.texX - 1;
-	all->ray.texStep = 1.0 * 64 / all->ray.lineHeight;
-	all->ray.texPos = (all->ray.drawStartTmp - 1080 / 2
-			+ all->ray.lineHeight / 2) * all->ray.texStep;
+	all->ray.wall_impact -= floor((all->ray.wall_impact));
+	all->ray.tex_x = (int)(all->ray.wall_impact * (double)64);
+	if (all->ray.is_side_wall == 0 && all->ray.raydir.x > 0)
+		all->ray.tex_x = 64 - all->ray.tex_x - 1;
+	if (all->ray.is_side_wall == 1 && all->ray.raydir.y < 0)
+		all->ray.tex_x = 64 - all->ray.tex_x - 1;
+	all->ray.step_pixel = 1.0 * 64 / all->ray.line_height;
+	all->ray.tex_pos = (all->ray.draw_start_tmp - 1080 / 2
+			+ all->ray.line_height / 2) * all->ray.step_pixel;
 }
 
 void	texture(t_all *all, int x)
@@ -51,18 +51,18 @@ void	texture(t_all *all, int x)
 
 	choose_texnum(all);
 	init_var_texture(all);
-	y = all->ray.drawStartTmp;
-	while (y < all->ray.drawEnd)
+	y = all->ray.draw_start_tmp;
+	while (y < all->ray.draw_end)
 	{
 		if (y < 1080 && x < 1920)
 		{
-			all->ray.texY = (int)all->ray.texPos & (64 - 1);
-			all->ray.texPos += all->ray.texStep;
-			// printf("NUM:%d\n", all->ray.texNum);
-			// printf("%d\n", all->ray.texture[all->ray.texNum].line_length);
+			all->ray.tex_y = (int)all->ray.tex_pos & (64 - 1);
+			all->ray.tex_pos += all->ray.step_pixel;
+			// printf("NUM:%d\n", all->ray.tex_nb);
+			// printf("%d\n", all->ray.texture[all->ray.tex_nb].line_length);
 			all->data.addr2[y * all->data.line_length / 4 + x] = \
-all->ray.texture[all->ray.texNum].addr2[all->ray.texY * 8 / 4 * all->ray.texX];
-			//all->ray.texture[all->ray.texNum].line_length
+all->ray.texture[all->ray.tex_nb].addr2[all->ray.tex_y * 8 / 4 * all->ray.tex_x];
+			//all->ray.texture[all->ray.tex_nb].line_length
 		}
 		y++;
 	}
