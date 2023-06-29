@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 11:38:14 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/29 11:21:50 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:47:52 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,15 +43,15 @@ int	parse_color(t_all *all, t_list *lst, char *key)
 	i = 0;
 	temp_color = get_lst_content(lst, key);
 	if (!temp_color)
-		return (-1);
+		return (free(temp_color), -1);
 	temp_split = ft_split(temp_color, ',');
 	if (!temp_split)
 		free_exit(all, 1, "Malloc Error\n");
 	while (i < 3)
 	{
-		nbr = ft_atoi(temp_split[0]);
-		if (nbr > 255 || nbr < 0)
-			return (-2);
+		nbr = ft_atoi(temp_split[i]);
+		if (nbr > 255 || nbr < 0 || ft_strlen_array(temp_split) > 3)
+			return (free_array(temp_split), free(temp_color), -2);
 		i++;
 	}
 	color = create_trgb(0, ft_atoi(temp_split[0]),

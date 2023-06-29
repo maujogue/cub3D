@@ -6,13 +6,13 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:37:36 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/29 11:36:45 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:45:54 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub.h"
 
-void	parse_parameters(t_all *all, t_list *lst)
+int	parse_parameters(t_all *all, t_list *lst)
 {
 	all->pars.map = lst_to_tab(lst);
 	if (!all->pars.map)
@@ -26,15 +26,25 @@ void	parse_parameters(t_all *all, t_list *lst)
 	if (!all->pars.north_wall || !all->pars.south_wall || !all->pars.east_wall
 		|| !all->pars.west_wall || all->pars.ceiling_color == (uint32_t)-1
 		|| !all->pars.map || all->pars.floor_color == (uint32_t)-1)
-		free_exit(all, 1, "Error\nMap - missing or duplicate parameter\n");
-	if (all->pars.ceiling_color == (uint32_t)-2
-		|| all->pars.floor_color == (uint32_t)-2)
-		free_exit(all, 1, "Error\nMap - invalid color \n");
+		return (1);
+	if ((int)all->pars.ceiling_color == -2 || (int)all->pars.floor_color == -2)
+		return (2);
+	if (ft_strlen(ft_strnstr(all->pars.north_wall, ".xpm",
+				ft_strlen(all->pars.north_wall))) != 4
+		|| ft_strlen(ft_strnstr(all->pars.south_wall,
+				".xpm", ft_strlen(all->pars.south_wall))) != 4
+		|| ft_strlen(ft_strnstr(all->pars.east_wall,
+				".xpm", ft_strlen(all->pars.east_wall))) != 4
+		|| ft_strlen(ft_strnstr(all->pars.west_wall,
+				".xpm", ft_strlen(all->pars.west_wall))) != 4)
+		return (3);
+	return (0);
 }
 
 void	parsing(t_all *all, char *file)
 {
 	int		fd;
+	int		err;
 	t_list	*lst;
 
 	lst = NULL;
@@ -45,6 +55,12 @@ void	parsing(t_all *all, char *file)
 	lst = file_to_lst(lst, fd);
 	if (!lst)
 		free_exit(all, 1, "Malloc Error\n");
-	parse_parameters(all, lst);
+	err = parse_parameters(all, lst);
 	free_lst(lst);
+	if (err == 1)
+		free_exit(all, 1, "Error\nMap - missing or duplicate parameter\n");
+	if (err == 2)
+		free_exit(all, 1, "Error\nMap - invalid color \n");
+	if (err == 3)
+		free_exit(all, 1, "Error\nInvalid XPM extension\n");
 }

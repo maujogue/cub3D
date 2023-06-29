@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 13:04:43 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/29 10:09:17 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/29 13:41:13 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,6 @@ int	raycasting(t_all *all)
 		// ft_draw_line(all);
 		i++;
 	}
-	mlx_put_image_to_window(all->mlx, all->mlx_win, all->data.img, 0, 0);
+	// mlx_put_image_to_window(all->mlx, all->mlx_win, all->data.img, 0, 0);
 	return (0);
 }

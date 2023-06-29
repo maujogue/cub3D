@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:00:30 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/28 15:30:22 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/29 13:44:24 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	refresh(t_all *all)
 	raycasting(all);
 	draw_minimap(all);
 	draw_player(all, all->ray.angle, SIZE_MINIMAP * RADIUS, 15);
-	mlx_put_image_to_window(all->mlx, all->mlx_win, all->data.img, 0, 0);
+	if (mlx_put_image_to_window(all->mlx,
+			all->mlx_win, all->data.img, 0, 0) != 0)
+		free_exit(all, 1, "Error\nXPM Error\n");
 	return (0);
 }

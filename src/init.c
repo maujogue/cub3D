@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/29 11:31:28 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:28:08 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	init_cub(t_all *all, char *map)
 	all->mlx = mlx_init();
 	if (!all->mlx)
 		free_exit(all, 1, "Malloc Error\n");
+	init_textures(all);
 	all->mlx_win = mlx_new_window(all->mlx, 1920,
 			1080, "cub3D");
 	if (!all->mlx_win)
@@ -50,7 +51,6 @@ void	init_cub(t_all *all, char *map)
 		&all->data.bits_per_pixel, &all->data.line_length, &all->data.endian);
 	if (!all->data.addr)
 		free_exit(all, 1, "Malloc Error\n");
-	init_textures(all);
 }
 
 void	init_angle(t_all *all)

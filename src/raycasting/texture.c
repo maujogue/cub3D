@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:22:40 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/29 10:18:49 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/06/29 14:49:50 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,9 @@ void	texture(t_all *all, int x)
 		{
 			all->ray.tex_y = (int)all->ray.tex_pos & (64 - 1);
 			all->ray.tex_pos += all->ray.step_pixel;
-			// printf("NUM:%d\n", all->ray.tex_nb);
-			// printf("%d\n", all->ray.texture[all->ray.tex_nb].line_length);
 			all->data.addr2[y * all->data.line_length / 4 + x] = \
-all->ray.texture[all->ray.tex_nb].addr2[all->ray.tex_y * 8 / 4 * all->ray.tex_x];
-			//all->ray.texture[all->ray.tex_nb].line_length
+			all->ray.texture[all->ray.tex_nb].addr2[all->ray.tex_y \
+			* 8 / 4 * all->ray.tex_x];
 		}
 		y++;
 	}
