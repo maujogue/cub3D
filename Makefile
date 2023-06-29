@@ -10,7 +10,7 @@ HEADER_FILES				= header/cub.h header/typedef.h
 
 DIR						= src/
 
-SRC			 			=	main.c	init.c	utils.c	keypress.c	free.c\
+SRC			 			=	main.c	init.c	init_textures.c	utils.c	keypress.c	free.c\
 							parsing/parsing.c	parsing/colors.c	parsing/check_map.c parsing/lst_utils.c\
 							mlx.c \
 							raycasting/draw_minimap.c		raycasting/move.c\

@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/28 15:35:42 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/29 11:32:19 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 /* ******************************INIT**************************************** */
 
 void	init_cub(t_all *all, char *map);
+void	init_textures(t_all *all);
 void	init_ray(t_all *all);
 void	set_player_position(t_all *all);
 

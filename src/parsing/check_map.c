@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:18:09 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/28 13:52:53 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/29 11:20:28 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,13 @@ int	check_open_map(char **map, int i, int j)
 	if (ft_strchr("0NSEW", map[j][i])
 		&& (i == 0 || j == 0 || i == len_i || j == len_j))
 		return (2);
-	// if (j > 0)
-	// 	printf("->%c %d\n",map[j][i], (int)ft_strlen(map[j - 1]));
-	// if (j < len_j)
-	// 	printf("->%c %d\n",map[j][i], (int)ft_strlen(map[j + 1]));
 	if (ft_strchr("0NSEW", map[j][i])
 	&& ((j > 0 && (int)ft_strlen(map[j - 1]) - 1 < i)
 	|| (j < len_j && (int)ft_strlen(map[j + 1]) - 1 < i)
-	|| (j < len_j && !ft_strchr("01NSEW", map[j + 1][i]))
+	|| ((j < len_j && !ft_strchr("01NSEW", map[j + 1][i]))
 	|| (j > 0 && !ft_strchr("01NSEW", map[j - 1][i]))
 	|| (i < len_i && !ft_strchr("01NSEW", map[j][i + 1]))
-	|| (i > 0 && !ft_strchr("01NSEW", map[j][i - 1]))))
+	|| (i > 0 && !ft_strchr("01NSEW", map[j][i - 1])))))
 		return (2);
 	return (0);
 }
@@ -44,16 +40,18 @@ int	check_map_caracters(char **map)
 	int	i;
 	int	j;
 
-	i = -1;
-	j = -1;
-	while (map[++j])
+	i = 0;
+	j = 0;
+	while (map[j])
 	{
-		while (map[j][++i])
+		while (map[j][i])
 		{
 			if (check_open_map(map, i, j) != 0)
 				return (check_open_map(map, i, j));
+			i++;
 		}
 		i = 0;
+		j++;
 	}
 	return (0);
 }
@@ -64,17 +62,19 @@ int	check_multiple_player(char **map)
 	int	j;
 	int	nb_player;
 
-	i = -1;
-	j = -1;
+	i = 0;
+	j = 0;
 	nb_player = 0;
-	while (map[++j])
+	while (map[j])
 	{
-		while (map[j][++i])
+		while (map[j][i])
 		{
 			if (ft_strchr("NSEW", map[j][i]))
 				nb_player++;
+			i++;
 		}
 		i = 0;
+		j++;
 	}
 	return (nb_player);
 }

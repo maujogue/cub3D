@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 16:23:35 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/27 09:59:14 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/06/29 11:12:16 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,6 @@ char	**lst_to_tab(t_list	*lst)
 	tab = malloc(sizeof(char *) * (ft_lstsize(lst) + 1));
 	while (lst)
 	{
-		if (ft_strlen(lst->content) < 3)
-			return (NULL);
 		tab[i] = ft_strtrim_right(lst->content, "\n ");
 		if (!tab[i])
 			return (free_array(tab), NULL);
