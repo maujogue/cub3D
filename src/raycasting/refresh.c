@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   refresh.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathisaujogue <mathisaujogue@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:00:30 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/29 13:44:24 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:35:10 by mathisaujog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int	refresh(t_all *all)
 	raycasting(all);
 	draw_minimap(all);
 	draw_player(all, all->ray.angle, SIZE_MINIMAP * RADIUS, 15);
-	if (mlx_put_image_to_window(all->mlx,
-			all->mlx_win, all->data.img, 0, 0) != 0)
-		free_exit(all, 1, "Error\nXPM Error\n");
+	mlx_put_image_to_window(all->mlx,
+			all->mlx_win, all->data.img, 0, 0);
 	return (0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mathisaujogue <mathisaujogue@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 15:51:13 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/28 15:30:16 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/07/10 17:31:25 by mathisaujog      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,7 @@ void	draw_angle(t_all *all, t_vector v1, t_vector v2, t_vector sign_diff)
 	int	dx;
 	int	dy;
 	int	err;
-	int	i;
 
-	i = 0;
 	dx = abs((int)v2.x - (int)v1.x);
 	dy = abs((int)v2.y - (int)v1.y);
 	err = (dx - dy);
@@ -36,7 +34,6 @@ void	draw_angle(t_all *all, t_vector v1, t_vector v2, t_vector sign_diff)
 			err += dx;
 			v1.y += sign_diff.y;
 		}
-		i++;
 	}
 }
 
