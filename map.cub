@@ -1,4 +1,4 @@
-C 153,     255 ,   255
+C 100,     180 ,   255
 
 NO ./assets/xpm/flower.xpm
 
@@ -8,7 +8,7 @@ WE ./assets/xpm/tree.xpm
 
 EA ./assets/xpm/yoshi.xpm
 
-F  255,       255,        153
+F  180,       140,        80
 
            111
            101    111

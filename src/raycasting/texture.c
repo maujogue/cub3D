@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/26 17:22:40 by avaganay          #+#    #+#             */
-/*   Updated: 2023/09/04 13:37:36 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/09/04 16:08:01 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,16 @@ void	init_var_texture(t_all *all)
 		all->ray.wall_impact = all->ray.pos.x + all->ray.cam_wall_dist
 			* all->ray.raydir.x;
 	all->ray.wall_impact -= floor((all->ray.wall_impact));
-	all->ray.tex_x = (int)(all->ray.wall_impact * (double)all->ray.texture[all->ray.tex_nb].pix_width);
+	all->ray.tex_x = (int)(all->ray.wall_impact
+			* (double)all->ray.texture[all->ray.tex_nb].pix_width);
 	if (all->ray.is_side_wall == 0 && all->ray.raydir.x > 0)
-		all->ray.tex_x = all->ray.texture[all->ray.tex_nb].pix_width - all->ray.tex_x - 1;
+		all->ray.tex_x = all->ray.texture[all->ray.tex_nb].pix_width
+			- all->ray.tex_x - 1;
 	if (all->ray.is_side_wall == 1 && all->ray.raydir.y < 0)
-		all->ray.tex_x = all->ray.texture[all->ray.tex_nb].pix_width - all->ray.tex_x - 1;
-	all->ray.step_pixel = 1.0 * all->ray.texture[all->ray.tex_nb].pix_height / all->ray.line_height;
+		all->ray.tex_x = all->ray.texture[all->ray.tex_nb].pix_width
+			- all->ray.tex_x - 1;
+	all->ray.step_pixel = 1.0 * all->ray.texture[all->ray.tex_nb].pix_height
+		/ all->ray.line_height;
 	all->ray.tex_pos = (all->ray.draw_start_tmp - 1080 / 2
 			+ all->ray.line_height / 2) * all->ray.step_pixel;
 }
@@ -58,12 +62,10 @@ void	texture(t_all *all, int x)
 		{
 			all->ray.tex_y = (int)all->ray.tex_pos & (64 - 1);
 			all->ray.tex_pos += all->ray.step_pixel;
-			// printf("%d\n", all->ray.tex_y * all->ray.texture[all->ray.tex_nb].line_length / 4 * all->ray.tex_x);
 			all->data.addr2[y * all->data.line_length / 4 + x] = \
 			all->ray.texture[all->ray.tex_nb].addr2[all->ray.tex_y \
-			* all->ray.texture[all->ray.tex_nb].line_length / 4 + all->ray.tex_x];
-			//all->ray.texture[all->ray.tex_nb].line_length
-			//a la place du 8
+			* all->ray.texture[all->ray.tex_nb].line_length
+				/ 4 + all->ray.tex_x];
 		}
 		y++;
 	}
