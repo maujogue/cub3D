@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/29 10:18:35 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/09/04 13:30:44 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ typedef struct s_data
 	int		line_length;
 	int		endian;
 	int		pix_height;
-	int		pix_wight;
+	int		pix_width;
 }				t_data;
 
 typedef struct pars

@@ -1,14 +1,14 @@
-C 150,     200 ,   20
+C 153,     255 ,   255
 
-NO ./assets/xpm/wall.xpm
+NO ./assets/xpm/flower.xpm
 
-SO ./assets/xpm/wall.xpm
+SO ./assets/xpm/flower2.xpm
 
-WE ./assets/xpm/wall1.xpm
+WE ./assets/xpm/tree.xpm
 
-EA ./assets/xpm/wall2.xpm
+EA ./assets/xpm/yoshi.xpm
 
-F  10,       100,        255
+F  255,       255,        153
 
            111
            101    111
