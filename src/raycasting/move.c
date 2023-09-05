@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 12:06:42 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/29 09:57:14 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:40:27 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../header/cub.h"
+
+int	check_colision(t_all *all, int x, int y)
+{
+	if ((size_t)x < ft_strlen(all->pars.map[y])
+		&& ft_strchr(" 1", all->pars.map[y][x]) == NULL)
+		return (1);
+	return (0);
+}
 
 void	move_up_down(t_all *all, double move_speed)
 {
@@ -19,7 +27,7 @@ void	move_up_down(t_all *all, double move_speed)
 
 	x = floor(all->ray.p_pos.x + (cos(all->ray.angle) / move_speed) * 4);
 	y = floor(all->ray.p_pos.y + (sin(all->ray.angle) / move_speed) * 4);
-	if (all->keys[0] == 0 && all->pars.map[y][x] != '1')
+	if (all->keys[0] == 0 && check_colision(all, x, y))
 	{
 		all->ray.p_pos.x += cos(all->ray.angle) / move_speed;
 		all->ray.p_pos.y += sin(all->ray.angle) / move_speed;
@@ -28,7 +36,7 @@ void	move_up_down(t_all *all, double move_speed)
 	}
 	x = floor(all->ray.p_pos.x - (cos(all->ray.angle) / move_speed) * 4);
 	y = floor(all->ray.p_pos.y - (sin(all->ray.angle) / move_speed) * 4);
-	if (all->keys[1] == 0 && all->pars.map[y][x] != '1')
+	if (all->keys[1] == 0 && check_colision(all, x, y))
 	{
 		all->ray.p_pos.x -= cos(all->ray.angle) / move_speed;
 		all->ray.p_pos.y -= sin(all->ray.angle) / move_speed;
@@ -46,7 +54,7 @@ void	move_left_right(t_all *all, double move_speed)
 			+ (cos(all->ray.angle - PI / 2) / move_speed) * 4);
 	y = floor(all->ray.p_pos.y
 			+ (sin(all->ray.angle - PI / 2) / move_speed) * 4);
-	if (all->keys[2] == 0 && all->pars.map[y][x] != '1')
+	if (all->keys[2] == 0 && check_colision(all, x, y))
 	{
 		all->ray.p_pos.y += sin(all->ray.angle - PI / 2) / move_speed;
 		all->ray.p_pos.x += cos(all->ray.angle - PI / 2) / move_speed;
@@ -57,7 +65,7 @@ void	move_left_right(t_all *all, double move_speed)
 			+ (cos(all->ray.angle + PI / 2) / move_speed) * 4);
 	y = floor(all->ray.p_pos.y
 			+ (sin(all->ray.angle + PI / 2) / move_speed) * 4);
-	if (all->keys[3] == 0 && all->pars.map[y][x] != '1')
+	if (all->keys[3] == 0 && check_colision(all, x, y))
 	{
 		all->ray.p_pos.y += sin(all->ray.angle + PI / 2) / move_speed;
 		all->ray.p_pos.x += cos(all->ray.angle + PI / 2) / move_speed;
