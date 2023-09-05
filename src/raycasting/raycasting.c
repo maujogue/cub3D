@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycasting.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/27 13:04:43 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/29 13:41:13 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/09/05 11:09:02 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,6 @@ void	draw_wall(t_all *all, int i)
 		all->ray.draw_end = 1080;
 	d = 0;
 	all->ray.draw_start_tmp = all->ray.draw_start;
-	/////////////////////////////////////////plafond
 	while (all->ray.draw_start > d)
 		my_mlx_pixel_put(&(all->data), i, d++, all->pars.ceiling_color);
 	color = 0x80808080;
@@ -125,9 +124,7 @@ int	raycasting(t_all *all)
 		all->ray.line_height = (int)(1080 / all->ray.cam_wall_dist);
 		draw_wall(all, i);
 		texture(all, i);
-		// ft_draw_line(all);
 		i++;
 	}
-	// mlx_put_image_to_window(all->mlx, all->mlx_win, all->data.img, 0, 0);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/17 12:00:30 by avaganay          #+#    #+#             */
-/*   Updated: 2023/09/04 11:19:16 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/09/05 11:11:20 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int	refresh(t_all *all)
 	draw_minimap(all);
 	draw_player(all, all->ray.angle, SIZE_MINIMAP * RADIUS, 15);
 	mlx_put_image_to_window(all->mlx,
-			all->mlx_win, all->data.img, 0, 0);
+		all->mlx_win, all->data.img, 0, 0);
 	return (0);
 }

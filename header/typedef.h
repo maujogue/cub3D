@@ -6,7 +6,7 @@
 /*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/09/04 13:30:44 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/09/05 11:04:35 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,9 +74,7 @@ typedef struct s_ray
 	t_vector	delta_pos;
 	double		angle;
 	t_vector	pos;
-	t_vector	dir;
 	t_vector	dir_perp;
-	double		time;
 	double		camera_orientation;
 	t_vector	raydir;
 	t_vector	sidedist;

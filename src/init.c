@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
+/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:15:26 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/29 14:28:08 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/09/05 11:11:09 by avaganay         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void	init_angle(t_all *all)
 
 void	init_ray(t_all *all)
 {
-	// mlx_mouse_hide(all->mlx, all->mlx_win);
 	all->mouse_pos = WIDTH / 2;
 	set_player_position(all);
 	all->keys[0] = 1;
@@ -86,7 +85,6 @@ void	init_ray(t_all *all)
 	init_angle(all);
 	all->ray.dir_perp.x = sin(all->ray.angle + PI / 2);
 	all->ray.dir_perp.y = cos(all->ray.angle + PI / 2);
-	all->ray.time = 0;
 	all->ray.camera_orientation = 0;
 	all->ray.raydir.x = 0;
 	all->ray.raydir.y = 0;
