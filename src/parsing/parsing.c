@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:37:36 by maujogue          #+#    #+#             */
-/*   Updated: 2023/09/05 16:55:53 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:52:31 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,19 +58,17 @@ int	parse_parameters(t_all *all, t_list *lst)
 void	parsing(t_all *all, char *file)
 {
 	int		err;
-	t_list	*lst;
 
-	lst = NULL;
+	all->pars.lst = NULL;
 	all->pars.fd = open(file, O_RDWR);
 	if (all->pars.fd < 0
 		|| ft_strlen(ft_strnstr(file, ".cub", ft_strlen(file))) != 4
 		|| ft_strchr(ft_strchr(file, '.') + 1, '.') != NULL)
 		free_exit(all, 1, "Error\nCannot open map\n");
-	lst = file_to_lst(lst, all->pars.fd);
-	if (!lst)
+	all->pars.lst = file_to_lst(all->pars.lst, all->pars.fd);
+	if (!all->pars.lst)
 		free_exit(all, 1, "Malloc Error\n");
-	err = parse_parameters(all, lst);
-	free_lst(lst);
+	err = parse_parameters(all, all->pars.lst);
 	if (err == 1)
 		free_exit(all, 1, "Error\nMap - missing or duplicate parameter\n");
 	if (err == 2)

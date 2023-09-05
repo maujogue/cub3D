@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:18:10 by maujogue          #+#    #+#             */
-/*   Updated: 2023/09/05 16:30:06 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:52:07 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	free_pars(t_all *all)
 	free(all->pars.south_wall);
 	free(all->pars.east_wall);
 	free(all->pars.west_wall);
+	free_lst(all->pars.lst);
 	close(all->pars.fd);
 }
 

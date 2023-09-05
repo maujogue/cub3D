@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:12:47 by maujogue          #+#    #+#             */
-/*   Updated: 2023/09/05 16:28:52 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/09/05 17:51:16 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ typedef struct pars
 	uint32_t	ceiling_color;
 	char		**map;
 	int			fd;
+	t_list		*lst;
 }	t_pars;
 
 typedef struct s_ray
