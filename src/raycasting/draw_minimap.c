@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:42:27 by avaganay          #+#    #+#             */
-/*   Updated: 2023/06/28 15:31:11 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/09/05 12:44:53 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ void	draw_minimap(t_all *all)
 			start.x = (x - all->ray.p_pos.x + RADIUS) * SIZE_MINIMAP;
 			start.y = (y - all->ray.p_pos.y + RADIUS) * SIZE_MINIMAP;
 			if (ft_strchr("1 ", all->pars.map[y][x]))
-				draw_square(all, start, SIZE_MINIMAP, 0x00000000);
+				draw_square(all, start, SIZE_MINIMAP, 0xba3235);
 			if (ft_strchr("0NSEW", all->pars.map[y][x]))
-				draw_square(all, start, SIZE_MINIMAP, 0x00EEEEE4);
+				draw_square(all, start, SIZE_MINIMAP, 0xffffff);
 			x++;
 		}
 		y++;

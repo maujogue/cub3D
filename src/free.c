@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:18:10 by maujogue          #+#    #+#             */
-/*   Updated: 2023/09/04 16:09:04 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:30:06 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ void	free_pars(t_all *all)
 	free(all->pars.south_wall);
 	free(all->pars.east_wall);
 	free(all->pars.west_wall);
+	close(all->pars.fd);
 }
 
 void	free_exit(t_all *all, int exit_code, char *error_message)

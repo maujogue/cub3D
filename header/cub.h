@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 13:54:53 by maujogue          #+#    #+#             */
-/*   Updated: 2023/06/29 11:32:19 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/09/05 16:51:39 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ t_list	*file_to_lst(t_list *lst, int fd);
 char	**lst_to_tab(t_list	*lst);
 
 int		parse_color(t_all *all, t_list *lst, char *key);
+int     check_number(char *str);
 int		get_r(int trgb);
 int		get_g(int trgb);
 int		get_b(int trgb);

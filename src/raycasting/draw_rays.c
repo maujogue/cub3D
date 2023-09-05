@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_rays.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mathisaujogue <mathisaujogue@student.42    +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/23 15:51:13 by maujogue          #+#    #+#             */
-/*   Updated: 2023/07/10 17:31:25 by mathisaujog      ###   ########.fr       */
+/*   Updated: 2023/09/05 12:46:41 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	draw_angle(t_all *all, t_vector v1, t_vector v2, t_vector sign_diff)
 	err = (dx - dy);
 	while (floor(v1.x) != floor(v2.x) || floor(v1.y) != floor(v2.y))
 	{
-		my_mlx_pixel_put(&(all->data), v1.x, v1.y, 0x00858B8C);
+		my_mlx_pixel_put(&(all->data), v1.x, v1.y, 0x000000);
 		if (2 * err > -dy)
 		{
 			err -= dy;
