@@ -6,7 +6,7 @@
 /*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 16:23:35 by maujogue          #+#    #+#             */
-/*   Updated: 2023/09/05 18:07:52 by maujogue         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:17:50 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ t_list	*file_to_lst(t_list *lst, int fd)
 			break ;
 		node = ft_lstnew(line);
 		if (!node)
-			return (free(line), free_lst(lst), NULL);
+			return (free(node), free(line), free_lst(lst), NULL);
 		ft_lstadd_back(&lst, node);
 	}
 	return (lst);
@@ -89,6 +89,8 @@ char	**lst_to_tab(t_list	*lst)
 	while (ft_strchr(" 01", ((char *)lst->content)[0]) == NULL)
 		lst = lst->next;
 	tab = malloc(sizeof(char *) * (ft_lstsize(lst) + 1));
+	if (!tab)
+		return (NULL);
 	while (lst)
 	{
 		tab[i] = ft_strtrim_right(lst->content, "\n ");
