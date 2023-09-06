@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_textures.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: avaganay <avaganay@student.42.fr>          +#+  +:+       +#+        */
+/*   By: maujogue <maujogue@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/29 11:31:36 by maujogue          #+#    #+#             */
-/*   Updated: 2023/09/04 13:34:36 by avaganay         ###   ########.fr       */
+/*   Updated: 2023/09/06 13:28:27 by maujogue         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	init_textures_east_west(t_all *all)
 		(int *)mlx_get_data_addr(all->ray.texture[2].img, \
 		&all->ray.texture[2].bits_per_pixel, &all->ray.texture[2].line_length, \
 		&all->ray.texture[2].endian);
+	if (!all->ray.texture[2].addr2)
+		free_exit(all, 1,"Malloc Error\n");
 	all->ray.texture[3].img = mlx_xpm_file_to_image(all->mlx, \
 		all->pars.west_wall, &(all->ray.texture[3].pix_width), \
 		&(all->ray.texture[3].pix_height));
@@ -32,6 +34,8 @@ void	init_textures_east_west(t_all *all)
 		(int *)mlx_get_data_addr(all->ray.texture[3].img, \
 		&all->ray.texture[3].bits_per_pixel, &all->ray.texture[3].line_length, \
 		&all->ray.texture[3].endian);
+	if (!all->ray.texture[3].addr2)
+		free_exit(all, 1, "Malloc Error\n");
 }
 
 void	init_textures(t_all *all)
@@ -45,6 +49,8 @@ void	init_textures(t_all *all)
 		(int *)mlx_get_data_addr(all->ray.texture[0].img, \
 		&all->ray.texture[0].bits_per_pixel, &all->ray.texture[0].line_length, \
 		&all->ray.texture[0].endian);
+	if (!all->ray.texture[0].addr2)
+		free_exit(all, 1, "Malloc Error\n");
 	all->ray.texture[1].img = mlx_xpm_file_to_image(all->mlx, \
 		all->pars.north_wall, &(all->ray.texture[1].pix_width), \
 		&(all->ray.texture[1].pix_height));
@@ -54,5 +60,7 @@ void	init_textures(t_all *all)
 		(int *)mlx_get_data_addr(all->ray.texture[1].img, \
 		&all->ray.texture[1].bits_per_pixel, &all->ray.texture[1].line_length, \
 		&all->ray.texture[1].endian);
+	if (!all->ray.texture[1].addr2)
+		free_exit(all, 1, "Malloc Error\n");
 	init_textures_east_west(all);
 }
